@@ -1,0 +1,365 @@
+------------------------[24/10/2017 12:43 PM]------------------------
+error : ReferenceError: cfpLoadingBar is not defined
+message : cfpLoadingBar is not defined
+line : 
+stack : ReferenceError: cfpLoadingBar is not defined
+    at Scope.$scope.save (eval at globalEval (http://localhost:61120/JS/jquery.js:328:5), <anonymous>:124:9)
+    at fn (eval at compile (http://localhost:61120/JS/angular.js:14605:15), <anonymous>:4:372)
+    at expensiveCheckFn (http://localhost:61120/JS/angular.js:15694:18)
+    at callback (http://localhost:61120/JS/angular.js:25622:17)
+    at Scope.$eval (http://localhost:61120/JS/angular.js:17444:28)
+    at Scope.$apply (http://localhost:61120/JS/angular.js:17544:25)
+    at HTMLButtonElement.<anonymous> (http://localhost:61120/JS/angular.js:25627:23)
+    at HTMLButtonElement.dispatch (http://localhost:61120/JS/jquery.js:4435:9)
+    at HTMLButtonElement.elemData.handle (http://localhost:61120/JS/jquery.js:4121:28)
+cause : 
+url : http://localhost:61120/#/app/Masters/Sales/BranchMaster
+company : LPEX
+user : AASIF
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------
+------------------------[24/10/2017 12:43 PM]------------------------
+error : ReferenceError: cfpLoadingBar is not defined
+message : cfpLoadingBar is not defined
+line : 
+stack : ReferenceError: cfpLoadingBar is not defined
+    at Scope.$scope.save (eval at globalEval (http://localhost:61120/JS/jquery.js:328:5), <anonymous>:124:9)
+    at fn (eval at compile (http://localhost:61120/JS/angular.js:14605:15), <anonymous>:4:372)
+    at expensiveCheckFn (http://localhost:61120/JS/angular.js:15694:18)
+    at callback (http://localhost:61120/JS/angular.js:25622:17)
+    at Scope.$eval (http://localhost:61120/JS/angular.js:17444:28)
+    at Scope.$apply (http://localhost:61120/JS/angular.js:17544:25)
+    at HTMLButtonElement.<anonymous> (http://localhost:61120/JS/angular.js:25627:23)
+    at HTMLButtonElement.dispatch (http://localhost:61120/JS/jquery.js:4435:9)
+    at HTMLButtonElement.elemData.handle (http://localhost:61120/JS/jquery.js:4121:28)
+cause : 
+url : http://localhost:61120/#/app/Masters/Sales/BranchMaster
+company : LPEX
+user : AASIF
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------
+------------------------[24/10/2017 12:43 PM]------------------------
+error : ReferenceError: cfpLoadingBar is not defined
+message : cfpLoadingBar is not defined
+line : 
+stack : ReferenceError: cfpLoadingBar is not defined
+    at Scope.$scope.save (eval at globalEval (http://localhost:61120/JS/jquery.js:328:5), <anonymous>:124:9)
+    at fn (eval at compile (http://localhost:61120/JS/angular.js:14605:15), <anonymous>:4:372)
+    at expensiveCheckFn (http://localhost:61120/JS/angular.js:15694:18)
+    at callback (http://localhost:61120/JS/angular.js:25622:17)
+    at Scope.$eval (http://localhost:61120/JS/angular.js:17444:28)
+    at Scope.$apply (http://localhost:61120/JS/angular.js:17544:25)
+    at HTMLButtonElement.<anonymous> (http://localhost:61120/JS/angular.js:25627:23)
+    at HTMLButtonElement.dispatch (http://localhost:61120/JS/jquery.js:4435:9)
+    at HTMLButtonElement.elemData.handle (http://localhost:61120/JS/jquery.js:4121:28)
+cause : 
+url : http://localhost:61120/#/app/Masters/Sales/BranchMaster
+company : LPEX
+user : AASIF
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------
+------------------------[24/10/2017 12:44 PM]------------------------
+error : ReferenceError: cfpLoadingBar is not defined
+message : cfpLoadingBar is not defined
+line : 
+stack : ReferenceError: cfpLoadingBar is not defined
+    at Scope.$scope.save (eval at globalEval (http://localhost:61120/JS/jquery.js:328:5), <anonymous>:124:9)
+    at fn (eval at compile (http://localhost:61120/JS/angular.js:14605:15), <anonymous>:4:372)
+    at expensiveCheckFn (http://localhost:61120/JS/angular.js:15694:18)
+    at callback (http://localhost:61120/JS/angular.js:25622:17)
+    at Scope.$eval (http://localhost:61120/JS/angular.js:17444:28)
+    at Scope.$apply (http://localhost:61120/JS/angular.js:17544:25)
+    at HTMLButtonElement.<anonymous> (http://localhost:61120/JS/angular.js:25627:23)
+    at HTMLButtonElement.dispatch (http://localhost:61120/JS/jquery.js:4435:9)
+    at HTMLButtonElement.elemData.handle (http://localhost:61120/JS/jquery.js:4121:28)
+cause : 
+url : http://localhost:61120/#/app/Masters/Sales/BranchMaster
+company : LPEX
+user : AASIF
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------
+------------------------[24/10/2017 12:44 PM]------------------------
+error : ReferenceError: cfpLoadingBar is not defined
+message : cfpLoadingBar is not defined
+line : 
+stack : ReferenceError: cfpLoadingBar is not defined
+    at Scope.$scope.save (eval at globalEval (http://localhost:61120/JS/jquery.js:328:5), <anonymous>:124:9)
+    at fn (eval at compile (http://localhost:61120/JS/angular.js:14605:15), <anonymous>:4:372)
+    at expensiveCheckFn (http://localhost:61120/JS/angular.js:15694:18)
+    at callback (http://localhost:61120/JS/angular.js:25622:17)
+    at Scope.$eval (http://localhost:61120/JS/angular.js:17444:28)
+    at Scope.$apply (http://localhost:61120/JS/angular.js:17544:25)
+    at HTMLButtonElement.<anonymous> (http://localhost:61120/JS/angular.js:25627:23)
+    at HTMLButtonElement.dispatch (http://localhost:61120/JS/jquery.js:4435:9)
+    at HTMLButtonElement.elemData.handle (http://localhost:61120/JS/jquery.js:4121:28)
+cause : 
+url : http://localhost:61120/#/app/Masters/Sales/BranchMaster
+company : LPEX
+user : AASIF
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------
+------------------------[24/10/2017 1:03 PM]------------------------
+error : ReferenceError: ZoneCode is not defined
+message : ZoneCode is not defined
+line : 
+stack : ReferenceError: ZoneCode is not defined
+    at Scope.$scope.save (eval at globalEval (http://localhost:61120/JS/jquery.js:328:5), <anonymous>:104:21)
+    at fn (eval at compile (http://localhost:61120/JS/angular.js:14605:15), <anonymous>:4:372)
+    at expensiveCheckFn (http://localhost:61120/JS/angular.js:15694:18)
+    at callback (http://localhost:61120/JS/angular.js:25622:17)
+    at Scope.$eval (http://localhost:61120/JS/angular.js:17444:28)
+    at Scope.$apply (http://localhost:61120/JS/angular.js:17544:25)
+    at HTMLButtonElement.<anonymous> (http://localhost:61120/JS/angular.js:25627:23)
+    at HTMLButtonElement.dispatch (http://localhost:61120/JS/jquery.js:4435:9)
+    at HTMLButtonElement.elemData.handle (http://localhost:61120/JS/jquery.js:4121:28)
+cause : 
+url : http://localhost:61120/#/app/Masters/Sales/BranchMaster
+company : LPEX
+user : AASIF
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------
+------------------------[24/10/2017 3:22 PM]------------------------
+error : Error: [$parse:lexerr] Lexer Error: Unterminated quote at columns 11-13 ['I] in expression [deststype!='I].
+http://errors.angularjs.org/1.5.7/$parse/lexerr?p0=Unterminated%20quote&p1=s%2011-13%20%5B'I%5D&p2=deststype!%3D'I
+message : [$parse:lexerr] Lexer Error: Unterminated quote at columns 11-13 ['I] in expression [deststype!='I].
+http://errors.angularjs.org/1.5.7/$parse/lexerr?p0=Unterminated%20quote&p1=s%2011-13%20%5B'I%5D&p2=deststype!%3D'I
+line : 
+stack : Error: [$parse:lexerr] Lexer Error: Unterminated quote at columns 11-13 ['I] in expression [deststype!='I].
+http://errors.angularjs.org/1.5.7/$parse/lexerr?p0=Unterminated%20quote&p1=s%2011-13%20%5B'I%5D&p2=deststype!%3D'I
+    at http://localhost:61120/JS/angular.js:68:12
+    at Lexer.throwError (http://localhost:61120/JS/angular.js:13967:11)
+    at Lexer.readString (http://localhost:61120/JS/angular.js:14059:10)
+    at Lexer.lex (http://localhost:61120/JS/angular.js:13868:14)
+    at AST.ast (http://localhost:61120/JS/angular.js:14091:30)
+    at ASTCompiler.compile (http://localhost:61120/JS/angular.js:14559:31)
+    at Parser.parse (http://localhost:61120/JS/angular.js:15488:29)
+    at $parse (http://localhost:61120/JS/angular.js:15653:39)
+    at initializeBinding (http://localhost:61120/JS/angular.js:9868:25)
+    at forEach (http://localhost:61120/JS/angular.js:329:18)
+cause : <div ui-view="" class="fade-in-up ng-scope">
+url : http://localhost:61120/#/app/Masters/Sales/BranchMaster
+company : LPEX
+user : AASIF
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------
+------------------------[24/10/2017 3:22 PM]------------------------
+error : Error: [$parse:lexerr] Lexer Error: Unterminated quote at columns 11-13 ['I] in expression [deststype!='I].
+http://errors.angularjs.org/1.5.7/$parse/lexerr?p0=Unterminated%20quote&p1=s%2011-13%20%5B'I%5D&p2=deststype!%3D'I
+message : [$parse:lexerr] Lexer Error: Unterminated quote at columns 11-13 ['I] in expression [deststype!='I].
+http://errors.angularjs.org/1.5.7/$parse/lexerr?p0=Unterminated%20quote&p1=s%2011-13%20%5B'I%5D&p2=deststype!%3D'I
+line : 
+stack : Error: [$parse:lexerr] Lexer Error: Unterminated quote at columns 11-13 ['I] in expression [deststype!='I].
+http://errors.angularjs.org/1.5.7/$parse/lexerr?p0=Unterminated%20quote&p1=s%2011-13%20%5B'I%5D&p2=deststype!%3D'I
+    at http://localhost:61120/JS/angular.js:68:12
+    at Lexer.throwError (http://localhost:61120/JS/angular.js:13967:11)
+    at Lexer.readString (http://localhost:61120/JS/angular.js:14059:10)
+    at Lexer.lex (http://localhost:61120/JS/angular.js:13868:14)
+    at AST.ast (http://localhost:61120/JS/angular.js:14091:30)
+    at ASTCompiler.compile (http://localhost:61120/JS/angular.js:14559:31)
+    at Parser.parse (http://localhost:61120/JS/angular.js:15488:29)
+    at $parse (http://localhost:61120/JS/angular.js:15653:39)
+    at initializeBinding (http://localhost:61120/JS/angular.js:9868:25)
+    at forEach (http://localhost:61120/JS/angular.js:329:18)
+cause : <div ui-view="" class="fade-in-up ng-scope">
+url : http://localhost:61120/#/app/Masters/Sales/BranchMaster
+company : LPEX
+user : AASIF
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------
+------------------------[24/10/2017 3:35 PM]------------------------
+error : Error: [$parse:lexerr] Lexer Error: Unterminated quote at columns 11-13 ['I] in expression [deststype!='I].
+http://errors.angularjs.org/1.5.7/$parse/lexerr?p0=Unterminated%20quote&p1=s%2011-13%20%5B'I%5D&p2=deststype!%3D'I
+message : [$parse:lexerr] Lexer Error: Unterminated quote at columns 11-13 ['I] in expression [deststype!='I].
+http://errors.angularjs.org/1.5.7/$parse/lexerr?p0=Unterminated%20quote&p1=s%2011-13%20%5B'I%5D&p2=deststype!%3D'I
+line : 
+stack : Error: [$parse:lexerr] Lexer Error: Unterminated quote at columns 11-13 ['I] in expression [deststype!='I].
+http://errors.angularjs.org/1.5.7/$parse/lexerr?p0=Unterminated%20quote&p1=s%2011-13%20%5B'I%5D&p2=deststype!%3D'I
+    at http://localhost:61120/JS/angular.js:68:12
+    at Lexer.throwError (http://localhost:61120/JS/angular.js:13967:11)
+    at Lexer.readString (http://localhost:61120/JS/angular.js:14059:10)
+    at Lexer.lex (http://localhost:61120/JS/angular.js:13868:14)
+    at AST.ast (http://localhost:61120/JS/angular.js:14091:30)
+    at ASTCompiler.compile (http://localhost:61120/JS/angular.js:14559:31)
+    at Parser.parse (http://localhost:61120/JS/angular.js:15488:29)
+    at $parse (http://localhost:61120/JS/angular.js:15653:39)
+    at initializeBinding (http://localhost:61120/JS/angular.js:9868:25)
+    at forEach (http://localhost:61120/JS/angular.js:329:18)
+cause : <div ui-view="" class="fade-in-up ng-scope">
+url : http://localhost:61120/#/app/Masters/Sales/BranchMaster
+company : LPEX
+user : AASIF
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------
+------------------------[24/10/2017 3:36 PM]------------------------
+error : Error: [$parse:lexerr] Lexer Error: Unterminated quote at columns 11-13 ['I] in expression [deststype!='I].
+http://errors.angularjs.org/1.5.7/$parse/lexerr?p0=Unterminated%20quote&p1=s%2011-13%20%5B'I%5D&p2=deststype!%3D'I
+message : [$parse:lexerr] Lexer Error: Unterminated quote at columns 11-13 ['I] in expression [deststype!='I].
+http://errors.angularjs.org/1.5.7/$parse/lexerr?p0=Unterminated%20quote&p1=s%2011-13%20%5B'I%5D&p2=deststype!%3D'I
+line : 
+stack : Error: [$parse:lexerr] Lexer Error: Unterminated quote at columns 11-13 ['I] in expression [deststype!='I].
+http://errors.angularjs.org/1.5.7/$parse/lexerr?p0=Unterminated%20quote&p1=s%2011-13%20%5B'I%5D&p2=deststype!%3D'I
+    at http://localhost:61120/JS/angular.js:68:12
+    at Lexer.throwError (http://localhost:61120/JS/angular.js:13967:11)
+    at Lexer.readString (http://localhost:61120/JS/angular.js:14059:10)
+    at Lexer.lex (http://localhost:61120/JS/angular.js:13868:14)
+    at AST.ast (http://localhost:61120/JS/angular.js:14091:30)
+    at ASTCompiler.compile (http://localhost:61120/JS/angular.js:14559:31)
+    at Parser.parse (http://localhost:61120/JS/angular.js:15488:29)
+    at $parse (http://localhost:61120/JS/angular.js:15653:39)
+    at initializeBinding (http://localhost:61120/JS/angular.js:9868:25)
+    at forEach (http://localhost:61120/JS/angular.js:329:18)
+cause : <div ui-view="" class="fade-in-up ng-scope">
+url : http://localhost:61120/#/app/dashboard
+company : LPEX
+user : AASIF
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------
+------------------------[24/10/2017 3:38 PM]------------------------
+error : Error: [$parse:lexerr] Lexer Error: Unterminated quote at columns 11-13 ['I] in expression [deststype!='I].
+http://errors.angularjs.org/1.5.7/$parse/lexerr?p0=Unterminated%20quote&p1=s%2011-13%20%5B'I%5D&p2=deststype!%3D'I
+message : [$parse:lexerr] Lexer Error: Unterminated quote at columns 11-13 ['I] in expression [deststype!='I].
+http://errors.angularjs.org/1.5.7/$parse/lexerr?p0=Unterminated%20quote&p1=s%2011-13%20%5B'I%5D&p2=deststype!%3D'I
+line : 
+stack : Error: [$parse:lexerr] Lexer Error: Unterminated quote at columns 11-13 ['I] in expression [deststype!='I].
+http://errors.angularjs.org/1.5.7/$parse/lexerr?p0=Unterminated%20quote&p1=s%2011-13%20%5B'I%5D&p2=deststype!%3D'I
+    at http://localhost:61120/JS/angular.js:68:12
+    at Lexer.throwError (http://localhost:61120/JS/angular.js:13967:11)
+    at Lexer.readString (http://localhost:61120/JS/angular.js:14059:10)
+    at Lexer.lex (http://localhost:61120/JS/angular.js:13868:14)
+    at AST.ast (http://localhost:61120/JS/angular.js:14091:30)
+    at ASTCompiler.compile (http://localhost:61120/JS/angular.js:14559:31)
+    at Parser.parse (http://localhost:61120/JS/angular.js:15488:29)
+    at $parse (http://localhost:61120/JS/angular.js:15653:39)
+    at initializeBinding (http://localhost:61120/JS/angular.js:9868:25)
+    at forEach (http://localhost:61120/JS/angular.js:329:18)
+cause : <div ui-view="" class="fade-in-up ng-scope">
+url : http://localhost:61120/#/app/Masters/Sales/BranchMaster
+company : LPEX
+user : AASIF
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------
+------------------------[24/10/2017 3:41 PM]------------------------
+error : Error: [$parse:lexerr] Lexer Error: Unterminated quote at columns 11-13 ['I] in expression [deststype!='I].
+http://errors.angularjs.org/1.5.7/$parse/lexerr?p0=Unterminated%20quote&p1=s%2011-13%20%5B'I%5D&p2=deststype!%3D'I
+message : [$parse:lexerr] Lexer Error: Unterminated quote at columns 11-13 ['I] in expression [deststype!='I].
+http://errors.angularjs.org/1.5.7/$parse/lexerr?p0=Unterminated%20quote&p1=s%2011-13%20%5B'I%5D&p2=deststype!%3D'I
+line : 
+stack : Error: [$parse:lexerr] Lexer Error: Unterminated quote at columns 11-13 ['I] in expression [deststype!='I].
+http://errors.angularjs.org/1.5.7/$parse/lexerr?p0=Unterminated%20quote&p1=s%2011-13%20%5B'I%5D&p2=deststype!%3D'I
+    at http://localhost:61120/JS/angular.js:68:12
+    at Lexer.throwError (http://localhost:61120/JS/angular.js:13967:11)
+    at Lexer.readString (http://localhost:61120/JS/angular.js:14059:10)
+    at Lexer.lex (http://localhost:61120/JS/angular.js:13868:14)
+    at AST.ast (http://localhost:61120/JS/angular.js:14091:30)
+    at ASTCompiler.compile (http://localhost:61120/JS/angular.js:14559:31)
+    at Parser.parse (http://localhost:61120/JS/angular.js:15488:29)
+    at $parse (http://localhost:61120/JS/angular.js:15653:39)
+    at initializeBinding (http://localhost:61120/JS/angular.js:9868:25)
+    at forEach (http://localhost:61120/JS/angular.js:329:18)
+cause : <div ui-view="" class="fade-in-up ng-scope">
+url : http://localhost:61120/#/app/dashboard
+company : LPEX
+user : AASIF
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------
+------------------------[24/10/2017 3:44 PM]------------------------
+error : Error: [$parse:lexerr] Lexer Error: Unterminated quote at columns 11-13 ['I] in expression [deststype!='I].
+http://errors.angularjs.org/1.5.7/$parse/lexerr?p0=Unterminated%20quote&p1=s%2011-13%20%5B'I%5D&p2=deststype!%3D'I
+message : [$parse:lexerr] Lexer Error: Unterminated quote at columns 11-13 ['I] in expression [deststype!='I].
+http://errors.angularjs.org/1.5.7/$parse/lexerr?p0=Unterminated%20quote&p1=s%2011-13%20%5B'I%5D&p2=deststype!%3D'I
+line : 
+stack : Error: [$parse:lexerr] Lexer Error: Unterminated quote at columns 11-13 ['I] in expression [deststype!='I].
+http://errors.angularjs.org/1.5.7/$parse/lexerr?p0=Unterminated%20quote&p1=s%2011-13%20%5B'I%5D&p2=deststype!%3D'I
+    at http://localhost:61120/JS/angular.js:68:12
+    at Lexer.throwError (http://localhost:61120/JS/angular.js:13967:11)
+    at Lexer.readString (http://localhost:61120/JS/angular.js:14059:10)
+    at Lexer.lex (http://localhost:61120/JS/angular.js:13868:14)
+    at AST.ast (http://localhost:61120/JS/angular.js:14091:30)
+    at ASTCompiler.compile (http://localhost:61120/JS/angular.js:14559:31)
+    at Parser.parse (http://localhost:61120/JS/angular.js:15488:29)
+    at $parse (http://localhost:61120/JS/angular.js:15653:39)
+    at initializeBinding (http://localhost:61120/JS/angular.js:9868:25)
+    at forEach (http://localhost:61120/JS/angular.js:329:18)
+cause : <div ui-view="" class="fade-in-up ng-scope">
+url : http://localhost:61120/#/app/Masters/Sales/BranchMaster
+company : LPEX
+user : AASIF
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------
+------------------------[24/10/2017 6:01 PM]------------------------
+error : ReferenceError: SweetAlert is not defined
+message : SweetAlert is not defined
+line : 
+stack : ReferenceError: SweetAlert is not defined
+    at Scope.$scope.delete (eval at globalEval (http://localhost:61120/JS/jquery.js:328:5), <anonymous>:233:9)
+    at fn (eval at compile (http://localhost:61120/JS/angular.js:14605:15), <anonymous>:4:317)
+    at Scope.destination.(anonymous function) [as delete] (http://localhost:61120/JS/angular.js:9936:22)
+    at fn (eval at compile (http://localhost:61120/JS/angular.js:14605:15), <anonymous>:4:215)
+    at expensiveCheckFn (http://localhost:61120/JS/angular.js:15694:18)
+    at callback (http://localhost:61120/JS/angular.js:25622:17)
+    at Scope.$eval (http://localhost:61120/JS/angular.js:17444:28)
+    at Scope.$apply (http://localhost:61120/JS/angular.js:17544:25)
+    at HTMLAnchorElement.<anonymous> (http://localhost:61120/JS/angular.js:25627:23)
+    at HTMLAnchorElement.dispatch (http://localhost:61120/JS/jquery.js:4435:9)
+cause : 
+url : http://localhost:61120/#/app/Masters/Sales/BranchMaster
+company : LPEX
+user : AASIF
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------

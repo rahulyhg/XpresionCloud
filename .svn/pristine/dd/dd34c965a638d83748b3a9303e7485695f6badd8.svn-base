@@ -1,0 +1,63 @@
+------------------------[17/10/2017 5:30 PM]------------------------
+error : Error: Could not resolve 'app.pages.messages' from state 'app'
+message : Could not resolve 'app.pages.messages' from state 'app'
+line : 
+stack : Error: Could not resolve 'app.pages.messages' from state 'app'
+    at Object.y.transitionTo (http://localhost:61120/JS/angular-ui-router.min.js:7:17063)
+    at Object.y.go (http://localhost:61120/JS/angular-ui-router.min.js:7:16623)
+    at http://localhost:61120/JS/angular-ui-router.min.js:7:24697
+    at http://localhost:61120/JS/angular.js:19374:31
+    at completeOutstandingRequest (http://localhost:61120/JS/angular.js:5955:10)
+    at http://localhost:61120/JS/angular.js:6234:7
+cause : 
+url : http://localhost:61120/#/app/Masters/Sales/ZoneMaster
+company : LPEX
+user : Rv
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------
+------------------------[17/10/2017 5:31 PM]------------------------
+error : Error: Could not resolve 'app.pages.user' from state 'app'
+message : Could not resolve 'app.pages.user' from state 'app'
+line : 
+stack : Error: Could not resolve 'app.pages.user' from state 'app'
+    at Object.y.transitionTo (http://localhost:61120/JS/angular-ui-router.min.js:7:17063)
+    at Object.y.go (http://localhost:61120/JS/angular-ui-router.min.js:7:16623)
+    at http://localhost:61120/JS/angular-ui-router.min.js:7:24697
+    at http://localhost:61120/JS/angular.js:19374:31
+    at completeOutstandingRequest (http://localhost:61120/JS/angular.js:5955:10)
+    at http://localhost:61120/JS/angular.js:6234:7
+cause : 
+url : http://localhost:61120/#/app/dashboard
+company : LPEX
+user : Rv
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------
+------------------------[17/10/2017 6:15 PM]------------------------
+error : Error: Could not resolve 'app.pages.calendar' from state 'app'
+message : Could not resolve 'app.pages.calendar' from state 'app'
+line : 
+stack : Error: Could not resolve 'app.pages.calendar' from state 'app'
+    at Object.y.transitionTo (http://localhost:61120/JS/angular-ui-router.min.js:7:17063)
+    at Object.y.go (http://localhost:61120/JS/angular-ui-router.min.js:7:16623)
+    at http://localhost:61120/JS/angular-ui-router.min.js:7:24697
+    at http://localhost:61120/JS/angular.js:19374:31
+    at completeOutstandingRequest (http://localhost:61120/JS/angular.js:5955:10)
+    at http://localhost:61120/JS/angular.js:6234:7
+cause : 
+url : http://localhost:61120/#/app/dashboard
+company : LPEX
+user : Rv
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------

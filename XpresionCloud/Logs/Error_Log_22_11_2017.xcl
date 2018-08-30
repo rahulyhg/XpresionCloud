@@ -1,0 +1,42 @@
+------------------------[22/11/2017 3:45 PM]------------------------
+error : Error: Could not resolve 'app.masters.sales.state' from state 'app'
+message : Could not resolve 'app.masters.sales.state' from state 'app'
+line : 
+stack : Error: Could not resolve 'app.masters.sales.state' from state 'app'
+    at Object.y.transitionTo (http://localhost:61121/JS/angular-ui-router.min.js:7:17063)
+    at Object.y.go (http://localhost:61121/JS/angular-ui-router.min.js:7:16623)
+    at http://localhost:61121/JS/angular-ui-router.min.js:7:24697
+    at http://localhost:61121/JS/angular.js:19374:31
+    at completeOutstandingRequest (http://localhost:61121/JS/angular.js:5955:10)
+    at http://localhost:61121/JS/angular.js:6234:7
+cause : 
+url : http://localhost:61121/#/app/dashboard
+company : LPEX
+user : admin
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 62.0.3202.94
+--------------------------------------------------------------------
+------------------------[22/11/2017 6:21 PM]------------------------
+error : Error: Could not resolve 'app.masters.sales.state' from state 'app'
+message : Could not resolve 'app.masters.sales.state' from state 'app'
+line : 
+stack : Error: Could not resolve 'app.masters.sales.state' from state 'app'
+    at Object.y.transitionTo (http://localhost:61121/JS/angular-ui-router.min.js:7:17063)
+    at Object.y.go (http://localhost:61121/JS/angular-ui-router.min.js:7:16623)
+    at http://localhost:61121/JS/angular-ui-router.min.js:7:24697
+    at http://localhost:61121/JS/angular.js:19374:31
+    at completeOutstandingRequest (http://localhost:61121/JS/angular.js:5955:10)
+    at http://localhost:61121/JS/angular.js:6234:7
+cause : 
+url : http://localhost:61121/#/app/Masters/Sales/LocationMaster
+company : LPEX
+user : admin
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 62.0.3202.94
+--------------------------------------------------------------------

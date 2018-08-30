@@ -1,0 +1,736 @@
+﻿using ClosedXML.Excel;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Script.Serialization;
+using Syncfusion.XlsIO;
+using System.Globalization;
+using System.Text;
+using System.Net.Mail;
+using System.Net;
+using System.Web.Services;
+
+namespace XpresionCloud.Controllers
+{
+    public class AppController : Controller
+    {
+        //
+        // GET: /App/
+        Helper helper = new Helper();
+        public string getConnectionString()
+        {
+            return ConfigurationManager.ConnectionStrings["strConnct"].ToString();
+        }
+        [HttpPost]
+        public ActionResult getData(string param, string proc)
+        {
+            List<Dictionary<string, object>> parent = new List<Dictionary<string, object>>();
+            Dictionary<string, object> child;
+            DataSet ds = new DataSet();
+            try
+            {
+                ds = helper.getDataSet(proc, param);
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        child = new Dictionary<string, object>();
+                        foreach (DataColumn col in ds.Tables[0].Columns)
+                        {
+                            child.Add(col.ColumnName, dr[col]);
+                        }
+                        parent.Add(child);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                child = new Dictionary<string, object>();
+                child.Add("Status", 1);
+                child.Add("Message", e.Message);
+                parent.Add(child);
+            }
+
+            var JsonResult = Json(parent, JsonRequestBehavior.AllowGet);
+            JsonResult.MaxJsonLength = int.MaxValue;
+            return JsonResult;
+            //return Json(parent);
+            //return parent;
+        }
+
+        #region EXCEL EXPORT
+
+        public ActionResult exportExcel(string data, string name)
+        {
+            DataTable ds = JsonConvert.DeserializeObject<DataTable>(data);
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(ds, "sheet1");
+                MemoryStream ms = new MemoryStream();
+                wb.SaveAs(ms);
+                ms.Position = 0;
+                TempData[name] = ms.ToArray();
+                return new JsonResult()
+                {
+                    Data = new { FileGuid = name, FileName = name }
+                };
+            }
+
+        }
+
+        [HttpGet]
+        public ActionResult Download(string fileGuid, string fileName)
+        {
+            if (TempData[fileGuid] != null)
+            {
+                byte[] data = TempData[fileGuid] as byte[];
+                return File(data, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
+
+            }
+            else
+            {
+                return new EmptyResult();
+            }
+        }
+        #endregion
+
+        #region SESSION DATA FOR AngularJs
+        public ActionResult getSessionData()
+        {
+            Dictionary<string, string> sessionData = new Dictionary<string, string>();
+            if (Session.Keys.Count > 0)
+            {
+                foreach (string key in Session.Keys)
+                {
+                    sessionData.Add(key, Session[key].ToString());
+                }
+            }
+
+            return Json(sessionData);
+        }
+        #endregion
+
+        #region ERROR LOG
+        public ActionResult errorLogging(string log)
+        {
+            try
+            {
+                string logfilePath = AppDomain.CurrentDomain.BaseDirectory + "Logs\\";
+                if (!Directory.Exists(logfilePath))
+                    Directory.CreateDirectory(logfilePath);
+                string logFile = logfilePath + "Error_Log_" + DateTime.Today.Date.ToString("dd_MM_yyyy") + ".xcl";
+                var jobj = JObject.Parse(log);
+                var jarray = jobj["data"].Value<JObject>();
+                var procArray = jobj["procData"].Value<JObject>();
+                if (!System.IO.File.Exists(@logFile))
+                {
+                    using (StreamWriter sw = System.IO.File.CreateText(@logFile))
+                    {
+                        sw.WriteLine("------------------------[{0} {1}]------------------------", DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToShortTimeString());
+                        foreach (var value in jarray)
+                        {
+                            sw.WriteLine(String.Format("{0} : {1}", value.Key, jarray[value.Key]));
+                        }
+                        sw.WriteLine("--------------------------------------------------------------------");
+                        sw.Close();
+                    }
+                }
+                else
+                {
+                    TextWriter tw = new StreamWriter(@logFile, true);
+                    tw.WriteLine("------------------------[{0} {1}]------------------------", DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToShortTimeString());
+                    foreach (var value in jarray)
+                    {
+                        tw.WriteLine(String.Format("{0} : {1}", value.Key, jarray[value.Key]));
+                    }
+                    tw.WriteLine("--------------------------------------------------------------------");
+                    tw.Close();
+                }
+
+                //helper.voidData("XpresionCloudLog", log, "procData");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.StackTrace);
+            }
+            return new EmptyResult();
+        }
+        #endregion
+
+        #region MAIL LOG
+        public bool errorReport(string errors)
+        {
+            try
+            {
+                StringBuilder builder = new StringBuilder();
+                builder.AppendLine("<html>");
+                builder.AppendLine("<body>");
+                builder.AppendLine("Dear Sir,");
+                builder.AppendLine("<br />");
+                var jarray = JArray.Parse(errors);
+                for (int i = 0; i < jarray.Count; i++)
+                {
+                    var jobj = JObject.Parse(jarray[i].ToString());
+                    List<KeyValuePair<string, object>> param = new List<KeyValuePair<string, object>>();
+                    param.Add(new KeyValuePair<string, object>("@company", jobj["company"].ToString()));
+                    param.Add(new KeyValuePair<string, object>("@userID", jobj["user"].ToString()));
+                    param.Add(new KeyValuePair<string, object>("@url", jobj["url"].ToString()));
+                    param.Add(new KeyValuePair<string, object>("@error", jobj["error"].ToString()));
+                    param.Add(new KeyValuePair<string, object>("@err_Message", jobj["message"].ToString()));
+                    param.Add(new KeyValuePair<string, object>("@line", jobj["line"].ToString()));
+                    param.Add(new KeyValuePair<string, object>("@cause", jobj["cause"].ToString()));
+                    param.Add(new KeyValuePair<string, object>("@device", jobj["device"].ToString()));
+                    param.Add(new KeyValuePair<string, object>("@browser", jobj["browser"].ToString()));
+                    param.Add(new KeyValuePair<string, object>("@browser_Version", jobj["browser_version"].ToString()));
+                    param.Add(new KeyValuePair<string, object>("@os_Version", jobj["os_version"].ToString()));
+                    param.Add(new KeyValuePair<string, object>("@os", jobj["os"].ToString()));
+                    builder.AppendLine(String.Format("------------------------[{0} {1}]------------------------", DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToShortTimeString()));
+                    builder.AppendLine("<br />");
+                    builder.AppendLine(String.Format("<span style=\"color:red;font-weight: bold;\">Company</span> : {0}", jobj["company"].ToString()));
+                    builder.AppendLine("<br />");
+                    builder.AppendLine(String.Format("<span style=\"color:red;font-weight: bold;\">User</span> : {0}", jobj["user"].ToString()));
+                    builder.AppendLine("<br />");
+                    builder.AppendLine(String.Format("<span style=\"color:red;font-weight: bold;\">Url</span> : {0}", jobj["url"].ToString()));
+                    builder.AppendLine("<br />");
+                    builder.AppendLine(String.Format("<span style=\"color:red;font-weight: bold;\">Error</span> : {0}", jobj["error"].ToString()));
+                    builder.AppendLine("<br />");
+                    builder.AppendLine(String.Format("<span style=\"color:red;font-weight: bold;\">Message</span> : {0}", jobj["message"].ToString()));
+                    builder.AppendLine("<br />");
+                    builder.AppendLine(String.Format("<span style=\"color:red;font-weight: bold;\">Line</span> : {0}", jobj["line"].ToString()));
+                    builder.AppendLine("<br />");
+                    builder.AppendLine(String.Format("<span style=\"color:red;font-weight: bold;\">Cause</span> : {0}", jobj["cause"].ToString()));
+                    builder.AppendLine("<br />");
+                    builder.AppendLine(String.Format("<span style=\"color:red;font-weight: bold;\">Device</span> : {0}", jobj["device"].ToString()));
+                    builder.AppendLine("<br />");
+                    builder.AppendLine(String.Format("<span style=\"color:red;font-weight: bold;\">Browser</span> : {0}", jobj["browser"].ToString()));
+                    builder.AppendLine("<br />");
+                    builder.AppendLine(String.Format("<span style=\"color:red;font-weight: bold;\">Browser_version</span> : {0}", jobj["browser_version"].ToString()));
+                    builder.AppendLine("<br />");
+                    builder.AppendLine(String.Format("<span style=\"color:red;font-weight: bold;\">OS</span> : {0}", jobj["os"].ToString()));
+                    builder.AppendLine("<br />");
+                    builder.AppendLine(String.Format("<span style=\"color:red;font-weight: bold;\">OS_Version</span> : {0}", jobj["os_version"].ToString()));
+                    builder.AppendLine("<br />");
+                    helper.voidData("XpresionCloudLog", param);
+                }
+                builder.AppendLine("</body>");
+                builder.AppendLine("</html>");
+                MailMessage MailMsg = new MailMessage();
+                string email = ConfigurationManager.AppSettings["XpresionEmailID"].ToString();
+                string fromMail = ConfigurationManager.AppSettings["MailUserID"].ToString();
+                if (email != "")
+                {
+                    MailMsg.To.Add(new MailAddress(email));
+                    MailMsg.From = (new MailAddress(fromMail));
+                    string sub = String.Format("Error List from {0}:{1}", Session["comp_code"].ToString(), Session["user"].ToString());
+                    MailMsg.IsBodyHtml = true;
+                    MailMsg.Subject = sub;
+                    MailMsg.Body = builder.ToString();
+                    NetworkCredential objCred = new NetworkCredential(ConfigurationManager.AppSettings["MailUserID"], ConfigurationManager.AppSettings["MailPassword"]);
+                    SmtpClient Smtp = new SmtpClient(ConfigurationManager.AppSettings["MailServer"]);
+                    Smtp.Credentials = objCred;
+                    Smtp.SendCompleted += Smtp_SendCompleted;
+                    Smtp.Send(MailMsg);
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        private void Smtp_SendCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region CUSTOMER AUTOTEXT
+        [HttpPost]
+        public string GetCustomer(string prefixText, int count, string contextKey)
+        {
+            if (count == 0)
+            {
+                count = 20;
+            }
+            string OrgCode = "";
+            string Contkey = "";
+            string Loccode = "";
+            string User = "";
+            string fran = "";
+            string Key = contextKey;
+
+            string[] marr = Key.Split(',');
+
+            Contkey = marr[0].ToString();
+            OrgCode = marr[1].ToString();
+            User = marr[2].ToString();
+            Loccode = marr[3].ToString();
+            if (marr.Length > 4)
+                fran = marr[4].ToString();
+            SqlConnection Con = new SqlConnection(getConnectionString());
+            SqlCommand Com = new SqlCommand();
+            SqlDataReader Rdr = null;
+            List<string> lst = new List<string>(count);
+            try
+            {
+                Con.Open();
+                if (User.ToString().ToUpper() != "A")
+                {
+                    if (User.ToString().ToUpper() == "B")
+                    {
+                        Com.CommandText = "select top 20 (Customer_Name + ' | ' + Customer_Code) as Name from CustomerMast where (customer_code Like '" + prefixText + "%' or customer_name Like '" + prefixText + "%') And Customer_Status=0 and ((OrgCode='" + OrgCode + "' and CUSTOMER_LOC_CODE='" + Loccode + "') or GlobalCustomer=1) Order by Customer_Code ";
+                    }
+                    else if (User.ToString().ToUpper() == "F")
+                    {
+                        if (fran == "")
+                            Com.CommandText = "select top 20 (Customer_Name + ' | ' + Customer_Code) as Name from CustomerMast where (customer_code Like '" + prefixText + "%' or customer_name Like '" + prefixText + "%') And Customer_Status=0 and ((OrgCode='" + OrgCode + "' and CUSTOMER_LOC_CODE='" + Loccode + "') or GlobalCustomer=1) Order by Customer_Code ";
+                        else
+                            Com.CommandText = "select top 20 (Customer_Name + ' | ' + Customer_Code) as Name from CustomerMast where (customer_code Like '" + prefixText + "%' or customer_name Like '" + prefixText + "%') And Customer_Status=0 and (franchise_code='" + fran + "' or GlobalCustomer=1) Order by Customer_Code ";
+                    }
+                    else
+                    {
+                        Com.CommandText = "select top 20 (Customer_Name + ' | ' + Customer_Code) as Name from CustomerMast where (customer_code Like '" + prefixText + "%' or customer_name Like '" + prefixText + "%') And Customer_Status=0 and (OrgCode='" + OrgCode + "' or GlobalCustomer=1)  Order by Customer_Code  ";
+                    }
+                }
+                else
+                {
+                    Com.CommandText = "select top 20 (Customer_Name + ' | ' + Customer_Code) as Name from CustomerMast where (customer_code Like '" + prefixText + "%' or customer_name Like '" + prefixText + "%') And Customer_Status=0  Order by Customer_Code ";
+                }
+                Com.Connection = Con;
+                Rdr = Com.ExecuteReader();
+                if (Rdr.HasRows)
+                {
+                    while (Rdr.Read())
+                    {
+                        lst.Add(Rdr["Name"].ToString());
+                    }
+                }
+                else
+                    return "[]";
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally { Con.Close(); }
+            //return lst.ToArray();
+            //return lst;
+            string[] array = lst.ToArray();
+            JavaScriptSerializer obj = new JavaScriptSerializer();
+            return obj.Serialize(array);
+        }
+        #endregion
+
+
+        #region GetState Autotext Mangesh 23/10/2017
+
+        [HttpPost]
+        public string Getstate(string prefixText, int count, string contextKey)
+        {
+            if (count == 0)
+            {
+                count = 20;
+            }
+            string mOrg = "";
+            string Key = contextKey;
+            string Contkey = "";
+            string[] marr = Key.Split(',');
+
+            Contkey = marr[0].ToString();
+
+            if (marr.Length > 1)
+                mOrg = marr[1].ToString();
+
+            SqlConnection Con = new SqlConnection(getConnectionString());
+            SqlCommand Com = new SqlCommand();
+            SqlDataReader Rdr = null;
+            List<string> lst = new List<string>(count);
+            try
+            {
+                Con.Open();
+                Com.CommandText = "select top 20 (State_Name + ' | ' + State_Code) as Name from statemaster where State_Name Like '" + prefixText + "%' or State_Code Like '" + prefixText + "%' Order by State_Name ";
+                Com.Connection = Con;
+                //Com.Connection = Con;
+                Rdr = Com.ExecuteReader();
+                if (Rdr.HasRows)
+                {
+                    while (Rdr.Read())
+                    {
+                        lst.Add(Rdr["Name"].ToString());
+                    }
+                }
+                else
+                    return "[]";
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally { Con.Close(); }
+            //return lst.ToArray();
+            //return lst;
+            string[] array = lst.ToArray();
+            JavaScriptSerializer obj = new JavaScriptSerializer();
+            return obj.Serialize(array);
+        }
+        #endregion
+        #region
+        [HttpPost]
+        public string GetCountry(string prefixText, int count, string contextKey)
+        {
+            if (count == 0)
+            {
+                count = 20;
+            }
+            string loc = "";
+            string Contkey = "";
+            string Key = contextKey;
+            string[] marr = Key.Split(',');
+
+            foreach (string mkey in marr)
+            {
+                Contkey = mkey;
+            }
+            Contkey = marr[0].ToString();
+            // loc = marr[1].ToString();
+            SqlConnection Con = new SqlConnection(getConnectionString());
+            SqlCommand Com = new SqlCommand();
+            SqlDataReader Rdr = null;
+            List<string> lst = new List<string>(count);
+            try
+            {
+                Con.Open();
+                Com.CommandType = CommandType.StoredProcedure;
+                Com.CommandText = "CountryMast_AutoComplete";
+                Com.Parameters.AddWithValue("@Country_Name", prefixText);
+                Com.Connection = Con;
+                Rdr = Com.ExecuteReader();
+                if (Rdr.HasRows)
+                {
+                    while (Rdr.Read())
+                    {
+                        lst.Add(Rdr["Name"].ToString());
+                    }
+                }
+                else
+                    return "[]";
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally { Con.Close(); }
+            //return lst.ToArray();
+            //return lst;
+            string[] array = lst.ToArray();
+            JavaScriptSerializer obj = new JavaScriptSerializer();
+            return obj.Serialize(array);
+        }
+        #endregion
+        #region
+        [HttpPost]
+        public string GetZone(string prefixText, int count, string contextKey)
+        {
+            if (count == 0)
+            {
+                count = 20;
+            }
+            string mOrg = "";
+            string Key = contextKey;
+            string Contkey = "";
+            string[] marr = Key.Split(',');
+
+            Contkey = marr[0].ToString();
+
+            if (marr.Length > 1)
+                mOrg = marr[1].ToString();
+
+            SqlConnection Con = new SqlConnection(getConnectionString());
+            SqlCommand Com = new SqlCommand();
+            SqlDataReader Rdr = null;
+            List<string> lst = new List<string>(count);
+            try
+            {
+                Con.Open();
+                Com.CommandText = "select top 20 (ltrim(rtrim(ZoneName )) + ' | ' + ltrim(rtrim(ZoneCode))) as Name from  ZoneMast  where ZoneName Like '" + prefixText + "%' Order by ZoneName ";
+                Com.Connection = Con;
+                //Com.Connection = Con;
+                Rdr = Com.ExecuteReader();
+                if (Rdr.HasRows)
+                {
+                    while (Rdr.Read())
+                    {
+                        lst.Add(Rdr["Name"].ToString());
+                    }
+                }
+                else
+                    return "[]";
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally { Con.Close(); }
+            //return lst.ToArray();
+            //return lst;
+            string[] array = lst.ToArray();
+            JavaScriptSerializer obj = new JavaScriptSerializer();
+            return obj.Serialize(array);
+        }
+        #endregion
+
+        #region Service type Autotext
+        [HttpPost]
+        public string GetServiceType(string prefixText, int count, string contextKey)
+        {
+            if (count == 0)
+            {
+                count = 20;
+            }
+            string mOrg = "";
+            string Key = contextKey;
+            string Contkey = "";
+            string[] marr = Key.Split(',');
+
+            Contkey = marr[0].ToString();
+
+            if (marr.Length > 1)
+                mOrg = marr[1].ToString();
+
+            SqlConnection Con = new SqlConnection(getConnectionString());
+            SqlCommand Com = new SqlCommand();
+            SqlDataReader Rdr = null;
+            List<string> lst = new List<string>(count);
+            try
+            {
+                Con.Open();
+                Com.CommandType = CommandType.StoredProcedure;
+                Com.CommandText = "DestinationService_AutoComplete";
+                Com.Parameters.AddWithValue("@service_code", prefixText);
+                Com.Connection = Con;
+                Rdr = Com.ExecuteReader();
+                if (Rdr.HasRows)
+                {
+                    while (Rdr.Read())
+                    {
+                        lst.Add(Rdr["Name"].ToString());
+                    }
+                }
+                else
+                    return "[]";
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally { Con.Close(); }
+            //return lst.ToArray();
+            //return lst;
+            string[] array = lst.ToArray();
+            JavaScriptSerializer obj = new JavaScriptSerializer();
+            return obj.Serialize(array);
+        }
+        #endregion
+
+        #region Main Branch Autotext
+        [HttpPost]
+        public string GetMainBranch(string prefixText, int count, string contextKey)
+        {
+            if (count == 0)
+            {
+                count = 20;
+            }
+            SqlConnection Con = new SqlConnection(getConnectionString());
+            SqlCommand Com = new SqlCommand();
+            SqlDataReader Rdr = null;
+            List<string> lst = new List<string>(count);
+            try
+            {
+                Con.Open();
+                Com.CommandText = "select top 20 (BRANCH_NAME + ' | ' + BRANCH_CODE) as Name from  BOMLOCAL_REMOTE  where BRANCH_NAME Like '" + prefixText + "%' OR BRANCH_CODE Like '" + prefixText + "%'Order by BRANCH_NAME";
+                Com.Connection = Con;
+                Rdr = Com.ExecuteReader();
+                if (Rdr.HasRows)
+                {
+                    while (Rdr.Read())
+                    {
+                        lst.Add(Rdr["Name"].ToString());
+                    }
+                }
+                else
+                    return "[]";
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally { Con.Close(); }
+            //return lst.ToArray();
+            //return lst;
+            string[] array = lst.ToArray();
+            JavaScriptSerializer obj = new JavaScriptSerializer();
+            return obj.Serialize(array);
+        }
+        #endregion
+        public void GenerateDocument(string param)
+        {
+            using (ExcelEngine excelEngine = new ExcelEngine())
+            {
+                excelEngine.Excel.DefaultVersion = ExcelVersion.Excel2007;
+
+                IWorkbook workbook = excelEngine.Excel.Workbooks.Create(1);
+                IWorksheet worksheet = workbook.Worksheets[0];
+                worksheet.Range["A1"].Text = "Hello World";
+                workbook.SaveAs("Sample.xlsx", HttpContext.ApplicationInstance.Response, ExcelDownloadType.PromptDialog);
+            }
+        }
+
+        //[WebMethod]
+        [HttpPost]
+        public static List<Dictionary<string, object>> getDataM(string param, string proc, string Comp)
+        {
+            List<Dictionary<string, object>> parent = new List<Dictionary<string, object>>();
+            Dictionary<string, object> child;
+            DataSet ds = new DataSet();
+            try
+            {
+                //Service5 serv = new Service5();
+                //var mlist = new List<KeyValuePair<string, object>>();
+                //var jobj = JObject.Parse(param);
+                //var jarry = jobj["data"].Value<JObject>();
+                //foreach (var value in jarry)
+                //{
+                //    mlist.Add(new KeyValuePair<string, object>(value.Key.ToString(), jarry[value.Key].Value<string>()));
+                //}
+                //ds = serv.getData_DataSet(mlist, proc, Comp);
+                Helper helper = new Helper();
+                ds = helper.getDataSet(proc, param);
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    //context.Session["EXportData"] = ds.Tables[0];
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        child = new Dictionary<string, object>();
+                        foreach (DataColumn col in ds.Tables[0].Columns)
+                        {
+                            child.Add(col.ColumnName, dr[col]);
+                        }
+                        parent.Add(child);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                child = new Dictionary<string, object>();
+                child.Add("Status", 1);
+                child.Add("Message", e.Message);
+                parent.Add(child);
+            }
+            return parent;
+        }
+
+        #region Vendor Autotext
+        [HttpPost]
+        public string GetVendorAutotext(string prefixText, int count, string contextKey)
+        {
+            if (count == 0)
+            {
+                count = 20;
+            }
+            string mOrg = "";
+            string Key = contextKey;
+            string Contkey = "";
+            string[] marr = Key.Split(',');
+
+            Contkey = marr[0].ToString();
+
+            if (marr.Length > 1)
+                mOrg = marr[1].ToString();
+
+            SqlConnection Con = new SqlConnection(getConnectionString());
+            SqlCommand Com = new SqlCommand();
+            SqlDataReader Rdr = null;
+            List<string> lst = new List<string>(count);
+            try
+            {
+                Con.Open();
+                Com.CommandType = CommandType.StoredProcedure;
+                Com.CommandText = "VendorMasterAutoText";
+                Com.Parameters.AddWithValue("@VENDOR_NAME", prefixText);
+                Com.Connection = Con;
+                Rdr = Com.ExecuteReader();
+                if (Rdr.HasRows)
+                {
+                    while (Rdr.Read())
+                    {
+                        lst.Add(Rdr["Name"].ToString());
+                    }
+                }
+                else
+                    return "[]";
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally { Con.Close(); }
+            //return lst.ToArray();
+            //return lst;
+            string[] array = lst.ToArray();
+            JavaScriptSerializer obj = new JavaScriptSerializer();
+            return obj.Serialize(array);
+        }
+        #endregion
+
+        #region
+        [HttpPost]
+        public string GetOrigin(string prefixText, int count, string contextKey)
+        {
+            if (count == 0)
+            {
+                count = 20;
+            }
+            SqlConnection Con = new SqlConnection(getConnectionString());
+            SqlCommand Com = new SqlCommand();
+            SqlDataReader Rdr = null;
+            List<string> lst = new List<string>(count);
+            try
+            {
+                Con.Open();
+                Com.CommandText = "select top 20 (BRANCH_NAME + ' | ' + BRANCH_CODE) as Name from  BOMLOCAL_REMOTE  where BRANCH_NAME Like '" + prefixText + "%' OR BRANCH_CODE Like '" + prefixText + "%'Order by BRANCH_NAME";
+                Com.Connection = Con;
+                Rdr = Com.ExecuteReader();
+                if (Rdr.HasRows)
+                {
+                    while (Rdr.Read())
+                    {
+                        lst.Add(Rdr["Name"].ToString());
+                    }
+                }
+                else
+                    return "[]";
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally { Con.Close(); }
+            //return lst.ToArray();
+            //return lst;
+            string[] array = lst.ToArray();
+            JavaScriptSerializer obj = new JavaScriptSerializer();
+            return obj.Serialize(array);
+        }
+        #endregion
+    }
+}

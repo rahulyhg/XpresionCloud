@@ -1,0 +1,252 @@
+﻿<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: MAIN -->
+<div ng-controller="branchController" class="container-fluid container-fullw padding-bottom-10">
+    <form name="Form">
+        <div class="row">
+            <div class="col-md-12 col-lg-9">
+                <div class="panel panel-white no-radius no-border">
+                    <div class="panel-heading border-dark">
+                        <h4 class="panel-title visible-md visible-lg hidden-sm hidden-xs">Branch Master </h4>
+                        <div class="panel-tools panel-tools-margins">
+                            <item-no ng-model="pageSize"></item-no>
+                            <exporter data="searchData" file-name="Branch.xlsx"></exporter>
+                            <button type="button" class="btn btn-sm btn-primary" ng-click="add()" ng-disabled="ADD">
+                                Add
+                            </button>
+                        </div>
+                        <ct-paneltool class="panel-tools" tool-refresh="load1" tool-expand="tool-expand"></ct-paneltool>
+                        <br />
+                        <br />
+                        <div class="row">
+                            <div class="col-md-12 col-lg-4"></div>
+                            <div class="col-md-12 col-lg-4">
+                                <input type="radio" title="Domestic" checked="checked" ng-model="deststype" value="D" ng-change="Search(deststype)" ng-disabled="ADD" />Domestic
+                                <input type="radio" title="Domestic" ng-model="deststype" value="I" ng-change="Search(deststype)" ng-disabled="ADD" />International
+                                <input type="radio" title="Domestic" ng-model="deststype" value="L" ng-change="Search(deststype)" ng-disabled="ADD" />Local
+                            </div>
+                            <div class="col-md-12 col-lg-4"></div>
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+                        <div ng-hide="!table">
+                            <ul uib-pagination class="pagination pagination-sm" ng-model="currentPage" max-size="maxSize" total-items="(searchData | filter:search).length" items-per-page="pageSize" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo" boundary-link-numbers="isLinkNumber" boundary-links="true" rotate="isLinkNumber" force-ellipses="true" style="margin: 0;"></ul>
+                            <span class="pull-right">Total no. of Record(s) : {{filtered.length}}
+                            </span>
+                        </div>
+                        <div class="table-responsive" ng-show="table" ng-init="table=true">
+                            <table class="table table-striped table-bordered table-hover margin-bottom-100 filter-header">
+                                <thead table-head data="searchData"
+                                    box-list="checked_fields"
+                                    delete="delete(checked_fields)"
+                                    export="partExport('red')"
+                                    loading="ldloading"
+                                    search="search"
+                                    update-filter="updateFilter()"
+                                    is-action="true"
+                                    sort-type="sortType"
+                                    sort-reverse="sortReverse">
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="cont in filtered | orderBy : sortType : sortReverse | filter:search | startFrom : currentPage : pageSize | limitTo:pageSize ">
+                                        <td>
+                                            <div class="checkbox clip-check select-check check-primary">
+                                                <input type="checkbox" id="{{$index}}" value="{{indexOfItem(cont)}}" check-list="checked_fields">
+                                                <label for="{{$index}}" />
+                                            </div>
+                                        </td>
+                                        <td>{{cont.BRANCH_CODE}}</td>
+                                        <td>{{cont.BRANCH_NAME}}</td>
+                                        <td>{{cont.State_Code}}</td>
+                                        <td>{{cont.state_name}}</td>
+                                        <td>{{cont.BRANCH_TELEX}}</td>
+                                        <td>{{cont.ZONECODE}}</td>
+                                        <td>{{cont.ZoneName}}</td>
+                                        <td>{{cont.branch_mobile}}</td>
+                                        <td>{{cont.Service_Type}}</td>
+                                        <td>{{cont.SrNo}}</td>
+                                        <td>{{cont.Main_Branch}}</td>
+                                        <td>{{cont.ManiBranchName}}</td>
+                                        <td>{{cont.BRANCH_MANIFEST}}</td>
+                                        <td>{{cont.BranchManifestName}}</td>
+                                        <td>{{cont.Country_Name}}</td>
+                                        <td>{{cont.Country_Code}}</td>
+                                        @*<td>{{cont.COUNTRY_CODE}}</td>
+                                        <td>{{cont.ZONECODE}}</td>
+                                        <td>{{cont.BRANCH_CODE}}</td>
+                                        <td>{{cont.BRANCH_NAME}}</td>
+                                        <td>{{cont.BRANCH_ADD1}}</td>
+                                        <td>{{cont.BRANCH_ADD2}}</td>
+                                        <td>{{cont.BRANCH_ADD3}}</td>
+                                        <td>{{cont.BRANCH_ADD4}}</td>
+                                        <td>{{cont.BRANCH_PINCODE}}</td>
+                                        <td>{{cont.BRANCH_TEL1}}</td>
+                                        <td>{{cont.BRANCH_TEL2}}</td>
+                                        <td>{{cont.BRANCH_FAX}}</td>
+                                        <td>{{cont.BRANCH_TELEX}}</td>
+                                        <td>{{cont.COMPANY_NAME}}</td>
+                                        <td>{{cont.COMPANY_ADD1}}</td>
+                                        <td>{{cont.COMPANY_ADD2}}</td>
+                                        <td>{{cont.COMPANY_TEL1}}</td>
+                                        <td>{{cont.COMPANY_TEL2}}</td>
+                                        <td>{{cont.COMPANY_FAX}}</td>
+                                        <td>{{cont.COMPANY_TELEX}}</td>
+                                        <td>{{cont.BRANCH_MANIFEST}}</td>
+                                        <td>{{cont.DIPLOMAT_STATION}}</td>
+                                        <td>{{cont.DIPLOMAT_AMOUNT}}</td>
+                                        <td>{{cont.INSTALL_DATE}}</td>
+                                        <td>{{cont.GEN_PREADVICE}}</td>
+                                        <td>{{cont.EXTRACT_PREADVICE}}</td>
+                                        <td>{{cont.GEN_DELV_ADVICE}}</td>
+                                        <td>{{cont.EXTRACT_DELV_ADVICE}}</td>
+                                        <td>{{cont.DELV_ADV_ON_BEHALF}}</td>
+                                        <td>{{cont.RBI_STATEMENT}}</td>
+                                        <td>{{cont.NoDaysToDelivery}}</td>
+                                        <td>{{cont.NoDaysToRecvPod}}</td>
+                                        <td>{{cont.BillGroup}}</td>
+                                        <td>{{cont.TxDest}}</td>
+                                        <td>{{cont.EntryDate}}</td>
+                                        <td>{{cont.Vendor_Code}}</td>
+                                        <td>{{cont.Octroi_Pct}}</td>
+                                        <td>{{cont.Clearing_Chrg}}</td>
+                                        <td>{{cont.Round_Off}}</td>
+                                        <td>{{cont.In_Ship_Value}}</td>
+                                        <td>{{cont.BRANCH_MOBILE}}</td>
+                                        <td>{{cont.Local_Branch}}</td>
+                                        <td>{{cont.State_Code}}</td>
+                                        <td>{{cont.PerDay_Usage}}</td>
+                                        <td>{{cont.Is_Branch}}</td>
+                                        <td>{{cont.OrderLevel}}</td>
+                                        <td>{{cont.Main_Branch}}</td>
+                                        <td>{{cont.No_Validation_Destination}}</td>
+                                        <td>{{cont.T_PIN_Required}}</td>
+                                        <td>{{cont.Service_Type}}</td>
+                                        <td>{{cont.BRANCH_EMAIL}}</td>
+                                        <td>{{cont.state_name}}</td>*@
+                                        <td ng-hide="checked_fields.length>0">
+                                            <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                                <a href="#" class="btn btn-transparent btn-xs" tooltip-placement="top" uib-tooltip="Edit" ng-click="edit(cont)"><i class="fa fa-pencil"></i></a>
+                                                <a href="#" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" uib-tooltip="Delete" ng-click="delete(cont.BRANCH_CODE)"><i class="fa fa-times fa fa-white"></i></a>
+                                            </div>
+                                            <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                <div class="btn-group" uib-dropdown>
+                                                    <button type="button" class="btn btn-primary btn-o btn-sm dropdown-toggle" uib-dropdown-toggle>
+                                                        <i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu pull-right dropdown-light" role="menu">
+                                                        <li>
+                                                            <a href="#" ng-click="edit(cont)">Edit </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" ng-click="delete(cont.BRANCH_CODE)">Delete </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div ng-show="!table">
+                            <form name="Form" novalidate role="form" class="form-horizontal">
+                                @*<fieldset>*@
+                                <legend>Branch Master</legend>
+                                <div class="form-group" ng-class="{'has-error':Form.BranchCode.$dirty && Form.countCode.$invalid || Form.BranchCode.$invalid && Form.$submitted, 'has-success':Form.BranchCode.$valid}">
+                                    <label class="col-sm-3 control-label">Branch Code <span class="symbol required"></span></label>
+                                    <div class="col-sm-9" style="margin-bottom: 10px;">
+                                        <input type="text" maxlength="3" class="form-control" name="BranchCode" ng-model="BranchCode" required ng-disabled="isEdit" />
+                                        <span class="error text-small block" ng-if="Form.BranchCode.$dirty && Form.BranchCode.$invalid || Form.BranchCode.$invalid && Form.$submitted">This field is required</span>
+                                    </div>
+                                </div>
+
+
+                                @*<div class="form-group" ng-if="deststype!='I'" ng-class="{'has-error':Form.State.$dirty && Form.State.$invalid || Form.State.$invalid && Form.$submitted, 'has-success':Form.State.$valid}">*@
+                                <label class="col-sm-3 control-label" ng-show="deststype!='I'">State <span class="symbol required"></span></label>
+                                <div class="col-sm-9" style="margin-bottom: 10px;" ng-show="deststype!='I'">
+                                    @*<auto-text code-model="StateCode" name="State" context-key="bmb,,A," name-model="StateName" css-class="form-control input-md" function="Getstate" ng-required="true"></auto-text>*@
+                                    <auto-text code-model="statecode" name="State" context-key="bmb,,A," name-model="statename" css-class="form-control input-md" function="Getstate" ng-required="deststype != 'I'"></auto-text>
+                                    @*<span class="error text-small block" ng-if="Form.State.$dirty && Form.State.$invalid || Form.State.$invalid && Form.$submitted">This field is required</span>*@
+                                </div>
+                                @*</div>*@
+                                @* <div class="form-group" ng-class="{'has-error':Form.countCode.$dirty && Form.countCode.$invalid || Form.countCode.$invalid && Form.$submitted, 'has-success':Form.countCode.$valid}">*@
+                                <label class="col-sm-3 control-label">Branch Name <span class="symbol required"></span></label>
+                                <div class="col-sm-9" style="margin-bottom: 10px;">
+                                    <input type="text" maxlength="30" class="form-control" name="BranchName" ng-model="BranchName" required />
+                                    <span class="error text-small block" ng-if="Form.BranchCode.$dirty && Form.BranchCode.$invalid || Form.BranchCode.$invalid && Form.$submitted">This field is required</span>
+                                </div>
+                                @*</div>*@
+
+                                @*<div class="form-group" ng-if="deststype=='I'" ng-class="{'has-error':Form.countName.$dirty && Form.countName.$invalid || Form.countName.$invalid && Form.$submitted, 'has-success':Form.countName.$valid}">*@
+                                <label class="col-sm-3 control-label" ng-show="deststype=='I'">Country <span class="symbol required"></span></label>
+                                <div class="col-sm-9" style="margin-bottom: 10px;" ng-show="deststype=='I'">
+                                    <auto-text code-model="countrycode" name="Country" context-key="bmb,,A," name-model="countryname" css-class="form-control input-md" function="GetCountry" ng-required="deststype=='I'"></auto-text>
+                                </div>
+                                @*</div>*@
+                                @* <div class="form-group" ng-class="{'has-error':Form.unit.$dirty && Form.unit.$invalid || Form.unit.$invalid && Form.$submitted, 'has-success':Form.unit.$valid}">*@
+                                <label class="col-sm-3 control-label">Email </label>
+                                <div class="col-sm-9" style="margin-bottom: 10px;">
+                                    <input type="email" class="form-control" name="EmailID" ng-model="EmailID" />
+                                </div>
+                                @*</div>*@
+
+                                @* <div class="form-group">*@
+                                <label class="col-sm-3 control-label">Zone<span class="symbol required"></span></label>
+                                <div class="col-sm-9" style="margin-bottom: 10px;">
+                                    <auto-text code-model="ZoneCode" name="Zone" context-key="bmb,,A," name-model="ZoneName" css-class="form-control input-md" function="GetZone" ng-required="true"></auto-text>
+                                </div>
+                                @*</div>*@
+                                @*<div class="form-group">*@
+                                <label class="col-sm-3 control-label">Mobile No.</label>
+                                <div class="col-sm-9" style="margin-bottom: 10px;">
+                                    <input type="text" class="form-control" name="MobileNo" ng-model="MobileNo" />
+                                </div>
+                                @*</div>*@
+                                @*<div class="form-group">*@
+                                <label class="col-sm-3 control-label">Service Type<span class="symbol required"></span></label>
+                                <div class="col-sm-9" style="margin-bottom: 10px;">
+                                    <auto-text code-model="ServiceTypeCode" name="ServiceType" context-key="bmb,,A," name-model="ServiceTypeName" css-class="form-control input-md" function="GetServiceType" ng-required="true"></auto-text>
+                                </div>
+                                @*</div>*@
+                                @* <div class="form-group">*@
+                                <label class="col-sm-3 control-label">Main Branch<span class="symbol required"></span></label>
+                                <div class="col-sm-9" style="margin-bottom: 10px;">
+                                    <auto-text code-model="MainBranchCode" name="MainBranch" context-key="bmb,,A," name-model="MainBranchName" css-class="form-control input-md" function="GetMainBranch" ng-required="true"></auto-text>
+                                </div>
+                                @*</div>*@
+                                @* <div class="form-group">*@
+                                <label class="col-sm-3 control-label">Branch Manifes<span class="symbol required"></span></label>
+                                <div class="col-sm-9" style="margin-bottom: 10px;">
+                                    <auto-text code-model="BranchManifestCode" name="BranchManifest" context-key="bmb,,A," name-model="BranchManifestName" css-class="form-control input-md" function="GetMainBranch" ng-required="true"></auto-text>
+                                </div>
+                                @*</div>*@
+                                <div class="col-md-12">
+                                    <div class="pull-right">
+                                        <button type="submit" class="btn btn-primary" ng-click="Form.$valid && save()">
+                                            Save
+                                        </button>
+                                        <button type="reset" class="btn btn-primary" ng-click="reset(Form)" ng-disabled="isEdit">
+                                            Reset
+                                        </button>
+                                        <button type="reset" class="btn btn-primary btn-o" ng-click="cancel(Form)">
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                                @*</fieldset>*@
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- end: MAIN -->
+
+<!-- PLACE CONTROLLER HERE -->
+<script src="../Views/Branch/BranchController.js"></script>

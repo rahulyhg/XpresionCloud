@@ -1,0 +1,31 @@
+﻿<#@ template language="C#" HostSpecific="True" #>
+<#@ output extension=".cshtml" #>
+<#@ assembly name="System.ComponentModel.DataAnnotations" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data.Entity" #>
+<#@ assembly name="System.Data.Linq" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.ComponentModel.DataAnnotations" #>
+<#@ import namespace="System.Data.Linq.Mapping" #>
+<#@ import namespace="System.Data.Objects.DataClasses" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="Microsoft.VisualStudio.Web.Mvc.Scaffolding.BuiltIn" #>
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+	<div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: MAIN -->
+<div ng-controller="" class="container-fluid container-fullw padding-bottom-10">
+    <form name="Form">
+        <div class="row">
+            <div class="col-md-12 col-lg-9">
+            </div>
+        </div>
+    </form>
+</div>
+<!-- end: MAIN -->
+
+<!-- PLACE CONTROLLER HERE -->

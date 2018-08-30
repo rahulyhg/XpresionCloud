@@ -1,0 +1,21 @@
+------------------------[18/10/2017 11:11 AM]------------------------
+error : Error: Could not resolve 'login.lockscreen' from state 'app'
+message : Could not resolve 'login.lockscreen' from state 'app'
+line : 
+stack : Error: Could not resolve 'login.lockscreen' from state 'app'
+    at Object.y.transitionTo (http://localhost:61120/JS/angular-ui-router.min.js:7:17063)
+    at Object.y.go (http://localhost:61120/JS/angular-ui-router.min.js:7:16623)
+    at http://localhost:61120/JS/angular-ui-router.min.js:7:24697
+    at http://localhost:61120/JS/angular.js:19374:31
+    at completeOutstandingRequest (http://localhost:61120/JS/angular.js:5955:10)
+    at http://localhost:61120/JS/angular.js:6234:7
+cause : 
+url : http://localhost:61120/#/app/Masters/Sales/ZoneMaster
+company : LPEX
+user : Rv
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------

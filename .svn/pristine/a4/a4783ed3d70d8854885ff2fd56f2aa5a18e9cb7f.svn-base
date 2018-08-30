@@ -1,0 +1,57 @@
+﻿<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+	<div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<div ng-controller="scanController" class="container-fluid container-fullw padding-bottom-10">
+    <div class="row">
+        <div class="col-md-10 col-lg-10">
+            <form name="Form" validation-form novalidate role="form" class="form-horizontal">
+                <fieldset>
+                    <legend>{{}}</legend>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group" style="margin-top: 1px" ng-class="{'has-error':Form.fromDate.$invalid && Form.$submitted}">
+                            <label class="control-label col-md-4 col-sm-12 col-xs-12">From Date <span class="symbol required"></span></label>
+                            <div class='col-md-8 col-sm-12 col-xs-12'>
+                                <input type="text" name="fromDate" date-picker class="form-control input-md" ng-model="fromDate" required />
+                                <span class="error text-small block" ng-if="Form.fromDate.$invalid && Form.$submitted">This field is required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group" style="margin-top: 1px" ng-class="{'has-error':Form.toDate.$invalid && Form.$submitted}">
+                            <label class="control-label col-md-4 col-sm-12 col-xs-12">To Date <span class="symbol required"></span></label>
+                            <div class='col-md-8 col-sm-12 col-xs-12'>
+                                <input type="text" name="toDate" date-picker class="form-control input-md" ng-model="toDate" required />
+                                <span class="error text-small block" ng-if="Form.toDate.$invalid && Form.$submitted">This field is required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group" style="margin-top: 1px" ng-class="{'has-error':Form.awbno.$invalid && Form.$submitted}">
+                            <label class="control-label col-md-4 col-sm-12 col-xs-12">AWB No. <span class="symbol required"></span></label>
+                            <div class='col-md-8 col-sm-12 col-xs-12'>
+                                <input type="text" name="awbno" class="form-control input-md" ng-model="awbno" required />
+                                <span class="error text-small block" ng-if="Form.awbno.$invalid && Form.$submitted">This field is required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group" style="margin-top: 1px" ng-class="{'has-error':Form.maniNo.$invalid && Form.$submitted}">
+                            <label class="control-label col-md-4 col-sm-12 col-xs-12">Manifest No. <span class="symbol required"></span></label>
+                            <div class='col-md-8 col-sm-12 col-xs-12'>
+                                <input type="text" name="maniNo" class="form-control input-md" ng-model="maniNo" required />
+                                <span class="error text-small block" ng-if="Form.maniNo.$invalid && Form.$submitted">This field is required</span>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="table-responsive">
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Controoler -->
+<script src="~/Views/Report/ScanReport.js"></script>

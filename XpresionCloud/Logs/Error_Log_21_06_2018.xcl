@@ -1,0 +1,224 @@
+------------------------[21/06/2018 1:18 PM]------------------------
+error : Error: [ng:areq] Argument 'navController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=navController&p1=not%20a%20function%2C%20got%20undefined
+message : [ng:areq] Argument 'navController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=navController&p1=not%20a%20function%2C%20got%20undefined
+line : 
+stack : Error: [ng:areq] Argument 'navController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=navController&p1=not%20a%20function%2C%20got%20undefined
+    at http://localhost:61121/JS/angular.js:68:12
+    at assertArg (http://localhost:61121/JS/angular.js:1885:11)
+    at assertArgFn (http://localhost:61121/JS/angular.js:1895:3)
+    at $controller (http://localhost:61121/JS/angular.js:10210:9)
+    at setupControllers (http://localhost:61121/JS/angular.js:9331:34)
+    at nodeLinkFn (http://localhost:61121/JS/angular.js:9116:32)
+    at compositeLinkFn (http://localhost:61121/JS/angular.js:8510:13)
+    at publicLinkFn (http://localhost:61121/JS/angular.js:8390:30)
+    at Object.link (http://localhost:61121/JS/angular.js:26471:38)
+    at http://localhost:61121/JS/angular.js:1240:18
+cause : <nav data-ng-include=" 'assets/partials/nav.html' " class="ng-scope" data-ng-animate="1">
+url : http://localhost:61121/#/app/dashboard
+company : 
+user : carl
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-7
+browser_version : 67.0.3396.87
+--------------------------------------------------------------------
+------------------------[21/06/2018 1:18 PM]------------------------
+error : Error: [ng:areq] Argument 'loginController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=loginController&p1=not%20a%20function%2C%20got%20undefined
+message : [ng:areq] Argument 'loginController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=loginController&p1=not%20a%20function%2C%20got%20undefined
+line : 
+stack : Error: [ng:areq] Argument 'loginController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=loginController&p1=not%20a%20function%2C%20got%20undefined
+    at http://localhost:61121/JS/angular.js:68:12
+    at assertArg (http://localhost:61121/JS/angular.js:1885:11)
+    at assertArgFn (http://localhost:61121/JS/angular.js:1895:3)
+    at $controller (http://localhost:61121/JS/angular.js:10210:9)
+    at setupControllers (http://localhost:61121/JS/angular.js:9331:34)
+    at nodeLinkFn (http://localhost:61121/JS/angular.js:9116:32)
+    at compositeLinkFn (http://localhost:61121/JS/angular.js:8510:13)
+    at publicLinkFn (http://localhost:61121/JS/angular.js:8390:30)
+    at Object.link (http://localhost:61121/JS/angular.js:26471:38)
+    at http://localhost:61121/JS/angular.js:1240:18
+cause : <nav data-ng-include=" 'assets/partials/nav.html' " class="ng-scope" data-ng-animate="1">
+url : http://localhost:61121/#/app/dashboard
+company : 
+user : carl
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-7
+browser_version : 67.0.3396.87
+--------------------------------------------------------------------
+------------------------[21/06/2018 1:19 PM]------------------------
+error : Error: [ng:areq] Argument 'loginController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=loginController&p1=not%20a%20function%2C%20got%20undefined
+message : [ng:areq] Argument 'loginController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=loginController&p1=not%20a%20function%2C%20got%20undefined
+line : 
+stack : Error: [ng:areq] Argument 'loginController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=loginController&p1=not%20a%20function%2C%20got%20undefined
+    at http://localhost:61121/JS/angular.js:68:12
+    at assertArg (http://localhost:61121/JS/angular.js:1885:11)
+    at assertArgFn (http://localhost:61121/JS/angular.js:1895:3)
+    at $controller (http://localhost:61121/JS/angular.js:10210:9)
+    at setupControllers (http://localhost:61121/JS/angular.js:9331:34)
+    at nodeLinkFn (http://localhost:61121/JS/angular.js:9116:32)
+    at compositeLinkFn (http://localhost:61121/JS/angular.js:8510:13)
+    at publicLinkFn (http://localhost:61121/JS/angular.js:8390:30)
+    at Object.link (http://localhost:61121/JS/angular.js:26471:38)
+    at http://localhost:61121/JS/angular.js:1240:18
+cause : <nav data-ng-include=" 'assets/partials/nav.html' " class="ng-scope" data-ng-animate="1">
+url : http://localhost:61121/#/app/dashboard
+company : 
+user : carl
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-7
+browser_version : 67.0.3396.87
+--------------------------------------------------------------------
+------------------------[21/06/2018 2:48 PM]------------------------
+error : Error: [ng:areq] Argument 'loginController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=loginController&p1=not%20a%20function%2C%20got%20undefined
+message : [ng:areq] Argument 'loginController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=loginController&p1=not%20a%20function%2C%20got%20undefined
+line : 
+stack : Error: [ng:areq] Argument 'loginController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=loginController&p1=not%20a%20function%2C%20got%20undefined
+    at http://localhost:61121/JS/angular.js:68:12
+    at assertArg (http://localhost:61121/JS/angular.js:1885:11)
+    at assertArgFn (http://localhost:61121/JS/angular.js:1895:3)
+    at $controller (http://localhost:61121/JS/angular.js:10210:9)
+    at setupControllers (http://localhost:61121/JS/angular.js:9331:34)
+    at nodeLinkFn (http://localhost:61121/JS/angular.js:9116:32)
+    at compositeLinkFn (http://localhost:61121/JS/angular.js:8510:13)
+    at publicLinkFn (http://localhost:61121/JS/angular.js:8390:30)
+    at Object.link (http://localhost:61121/JS/angular.js:26471:38)
+    at http://localhost:61121/JS/angular.js:1240:18
+cause : <nav data-ng-include=" 'assets/partials/nav.html' " class="ng-scope" data-ng-animate="1">
+url : http://localhost:61121/#/app/dashboard
+company : 
+user : carl
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-7
+browser_version : 67.0.3396.87
+--------------------------------------------------------------------
+------------------------[21/06/2018 2:49 PM]------------------------
+error : Error: [ng:areq] Argument 'loginController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=loginController&p1=not%20a%20function%2C%20got%20undefined
+message : [ng:areq] Argument 'loginController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=loginController&p1=not%20a%20function%2C%20got%20undefined
+line : 
+stack : Error: [ng:areq] Argument 'loginController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=loginController&p1=not%20a%20function%2C%20got%20undefined
+    at http://localhost:61121/JS/angular.js:68:12
+    at assertArg (http://localhost:61121/JS/angular.js:1885:11)
+    at assertArgFn (http://localhost:61121/JS/angular.js:1895:3)
+    at $controller (http://localhost:61121/JS/angular.js:10210:9)
+    at setupControllers (http://localhost:61121/JS/angular.js:9331:34)
+    at nodeLinkFn (http://localhost:61121/JS/angular.js:9116:32)
+    at compositeLinkFn (http://localhost:61121/JS/angular.js:8510:13)
+    at publicLinkFn (http://localhost:61121/JS/angular.js:8390:30)
+    at Object.link (http://localhost:61121/JS/angular.js:26471:38)
+    at http://localhost:61121/JS/angular.js:1240:18
+cause : <nav data-ng-include=" 'assets/partials/nav.html' " class="ng-scope" data-ng-animate="1">
+url : http://localhost:61121/#/app/dashboard
+company : 
+user : carl
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-7
+browser_version : 67.0.3396.87
+--------------------------------------------------------------------
+------------------------[21/06/2018 2:49 PM]------------------------
+error : Error: [ng:areq] Argument 'loginController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=loginController&p1=not%20a%20function%2C%20got%20undefined
+message : [ng:areq] Argument 'loginController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=loginController&p1=not%20a%20function%2C%20got%20undefined
+line : 
+stack : Error: [ng:areq] Argument 'loginController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=loginController&p1=not%20a%20function%2C%20got%20undefined
+    at http://localhost:61121/JS/angular.js:68:12
+    at assertArg (http://localhost:61121/JS/angular.js:1885:11)
+    at assertArgFn (http://localhost:61121/JS/angular.js:1895:3)
+    at $controller (http://localhost:61121/JS/angular.js:10210:9)
+    at setupControllers (http://localhost:61121/JS/angular.js:9331:34)
+    at nodeLinkFn (http://localhost:61121/JS/angular.js:9116:32)
+    at compositeLinkFn (http://localhost:61121/JS/angular.js:8510:13)
+    at publicLinkFn (http://localhost:61121/JS/angular.js:8390:30)
+    at Object.link (http://localhost:61121/JS/angular.js:26471:38)
+    at http://localhost:61121/JS/angular.js:1240:18
+cause : <nav data-ng-include=" 'assets/partials/nav.html' " class="ng-scope" data-ng-animate="1">
+url : http://localhost:61121/#/app/dashboard
+company : 
+user : carl
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-7
+browser_version : 67.0.3396.87
+--------------------------------------------------------------------
+------------------------[21/06/2018 2:49 PM]------------------------
+error : Error: [ng:areq] Argument 'loginController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=loginController&p1=not%20a%20function%2C%20got%20undefined
+message : [ng:areq] Argument 'loginController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=loginController&p1=not%20a%20function%2C%20got%20undefined
+line : 
+stack : Error: [ng:areq] Argument 'loginController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=loginController&p1=not%20a%20function%2C%20got%20undefined
+    at http://localhost:61121/JS/angular.js:68:12
+    at assertArg (http://localhost:61121/JS/angular.js:1885:11)
+    at assertArgFn (http://localhost:61121/JS/angular.js:1895:3)
+    at $controller (http://localhost:61121/JS/angular.js:10210:9)
+    at setupControllers (http://localhost:61121/JS/angular.js:9331:34)
+    at nodeLinkFn (http://localhost:61121/JS/angular.js:9116:32)
+    at compositeLinkFn (http://localhost:61121/JS/angular.js:8510:13)
+    at publicLinkFn (http://localhost:61121/JS/angular.js:8390:30)
+    at Object.link (http://localhost:61121/JS/angular.js:26471:38)
+    at http://localhost:61121/JS/angular.js:1240:18
+cause : <nav data-ng-include=" 'assets/partials/nav.html' " class="ng-scope">
+url : http://localhost:61121/#/app/dashboard
+company : 
+user : carl
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-7
+browser_version : 67.0.3396.87
+--------------------------------------------------------------------
+------------------------[21/06/2018 2:49 PM]------------------------
+error : Error: [ng:areq] Argument 'loginController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=loginController&p1=not%20a%20function%2C%20got%20undefined
+message : [ng:areq] Argument 'loginController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=loginController&p1=not%20a%20function%2C%20got%20undefined
+line : 
+stack : Error: [ng:areq] Argument 'loginController' is not a function, got undefined
+http://errors.angularjs.org/1.5.7/ng/areq?p0=loginController&p1=not%20a%20function%2C%20got%20undefined
+    at http://localhost:61121/JS/angular.js:68:12
+    at assertArg (http://localhost:61121/JS/angular.js:1885:11)
+    at assertArgFn (http://localhost:61121/JS/angular.js:1895:3)
+    at $controller (http://localhost:61121/JS/angular.js:10210:9)
+    at setupControllers (http://localhost:61121/JS/angular.js:9331:34)
+    at nodeLinkFn (http://localhost:61121/JS/angular.js:9116:32)
+    at compositeLinkFn (http://localhost:61121/JS/angular.js:8510:13)
+    at publicLinkFn (http://localhost:61121/JS/angular.js:8390:30)
+    at Object.link (http://localhost:61121/JS/angular.js:26471:38)
+    at http://localhost:61121/JS/angular.js:1240:18
+cause : <nav data-ng-include=" 'assets/partials/nav.html' " class="ng-scope">
+url : http://localhost:61121/#/app/dashboard
+company : 
+user : carl
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-7
+browser_version : 67.0.3396.87
+--------------------------------------------------------------------

@@ -1,0 +1,105 @@
+<!-- start: MAIN NAVIGATION MENU -->
+<div class="navbar-title">
+    <span >Main Navigation</span>
+</div>
+<ul class="main-navigation-menu" ng-controller="navCtrl">
+    <li ui-sref-active="active">
+        <a ui-sref="app.dashboard">
+            <div class="item-content">
+                <div class="item-media">
+                    <letter-icon data="Dashboard" char-count="2" size="sm"></letter-icon>
+                </div>
+                <div class="item-inner">
+                    <span class="title"> Dashboard </span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li ng-class="{'active open':$state.includes('app.masters')}">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media">
+                    <letter-icon data="M" char-count="2" size="sm"></letter-icon>
+                </div>
+                <div class="item-inner">
+                    <span class="title">Master</span><i class="icon-arrow"></i>
+                </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="javascript:void(0);"> <span >Sales</span> <i class="icon-arrow"></i> </a>
+                <ul class="sub-menu">
+                    <li ui-sref-active="active">
+                        <a ui-sref="app.masters.sales.zone"><span class="title">Zone Master </span></a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="app.masters.sales.product"><span class="title">Product Master </span></a>
+                    </li>
+                     <li ui-sref-active="active">
+                        <a ui-sref="app.masters.sales.location"><span class="title">Location Master </span></a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="app.masters.sales.country"><span class="title">Country Master </span></a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="app.masters.sales.state"><span class="title">State Master </span></a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="app.masters.sales.branch"><span class="title">Branch Master </span></a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="app.masters.sales.vendor"><span class="title">Vendor Master </span></a>
+                    </li>
+
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);"> <span >Customer</span> <i class="icon-arrow"></i> </a>
+                <ul class="sub-menu">
+
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li ng-class="{'active open':$state.includes('app.tran')}">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media">
+                    <letter-icon data="T" char-count="2" size="sm"></letter-icon>
+                </div>
+                <div class="item-inner">
+                    <span class="title" > Transaction </span><i class="icon-arrow"></i>
+                </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li ui-sref-active="active">
+                <a ui-sref="app.tran.indent"> <span class="title" > Indent Entry </span> </a>
+            </li>
+        </ul>
+    </li>
+    <li ng-class="{'active open':$state.includes('app.report')}">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media">
+                    <letter-icon data="R" char-count="2" size="sm"></letter-icon>
+                </div>
+                <div class="item-inner">
+                    <span class="title" > Reports </span><i class="icon-arrow"></i>
+                </div>
+            </div>
+        </a>
+        <ul class="sub-menu" >
+            <li ui-sref-active="active" ng-repeat="nav in navigation">
+                <a ui-sref="app.report.scan"> <span class="title" > {{nav.ReportName}} </span> </a>
+            </li>
+            <!--<li ui-sref-active="active">
+                <a ui-sref="app.util.user"> <span class="title" > Ops Report </span> </a>
+            </li>-->
+        </ul>
+    </li>
+</ul>
+<!-- end: MAIN NAVIGATION MENU -->
+<!-- Controller -->
+<script src="../../AppController/navCtrl.js"></script>

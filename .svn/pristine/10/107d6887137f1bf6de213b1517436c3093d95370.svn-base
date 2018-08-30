@@ -1,0 +1,101 @@
+﻿<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: MAIN -->
+<div ng-controller="userController" class="container-fluid container-fullw padding-bottom-10">
+    <form name="Form">
+        <div class="row">
+            <div class="col-md-12 col-lg-9">
+                <div class="panel panel-white no-radius no-border">
+                    <div class="panel-heading border-dark">
+                        <h4 class="panel-title visible-md visible-lg hidden-sm hidden-xs">User Setup</h4>
+                        <div class="panel-tools panel-tools-margins">
+                            <item-no ng-model="pageSize"></item-no>
+                            <exporter data="searchData" file-name="Zone.xlsx"></exporter>
+                            <button type="button" class="btn btn-sm btn-primary" ng-click="add()">
+                                Add
+                            </button>
+                        </div>
+                        <ct-paneltool class="panel-tools" tool-refresh="load1" tool-expand="tool-expand"></ct-paneltool>
+                    </div>
+                    <div class="panel-body">
+                        <div>
+                            <ul uib-pagination class="pagination pagination-sm" ng-model="currentPage" max-size="maxSize" total-items="(searchData | filter:search).length" items-per-page="pageSize" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo" boundary-link-numbers="false" boundary-links="true" rotate="false" force-ellipses="true" style="margin: 0;"></ul>
+                            <span class="pull-right">Total no. of Record(s) : {{total}}
+                            </span>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover margin-bottom-100 filter-header">
+                                <thead table-head data="searchData"
+                                    box-list="checked_fields"
+                                    delete="delete(checked_fields)"
+                                    export="partExport('red')"
+                                    loading="ldloading"
+                                    search="search"
+                                    update-filter="updateFilter()"
+                                    is-action="true"
+                                    sort-type="sortType"
+                                    sort-reverse="sortReverse"
+                                    hide-column="['Owner_Name','Add1','Add2','Add3','Add4','PinCode','Tel_No','Mob_No','Email_id','User_Id','EntryDate','Loc_Code','OwnerId','IsActive']">
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="zone in filtered | orderBy : sortType : sortReverse | filter:search | startFrom : currentPage : pageSize| limitTo:pageSize ">
+                                        <td>
+                                            <div class="checkbox clip-check select-check check-primary">
+                                                <input type="checkbox" id="{{zone.Vehicle_No}}" value="{{indexOfItem(zone)}}" check-list="checked_fields">
+                                                <label for="{{zone.Vehicle_No}}" />
+                                            </div>
+                                        </td>
+                                        <td>{{zone.Vehicle_No}}</td>
+                                        <td>{{zone.Vehicle_Type}}</td>
+                                        <td ng-hide="checked_fields.length>0">
+                                            <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                                <a href="#" class="btn btn-transparent btn-xs" tooltip-placement="top" uib-tooltip="Edit" ng-click="edit(zone)"><i class="fa fa-pencil"></i></a>
+                                                <a href="#" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" uib-tooltip="Delete" ng-click="delete(zone.ZoneCode)"><i class="fa fa-times fa fa-white"></i></a>
+                                            </div>
+                                            <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                <div class="btn-group" uib-dropdown>
+                                                    <button type="button" class="btn btn-primary btn-o btn-sm dropdown-toggle" uib-dropdown-toggle>
+                                                        <i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu pull-right dropdown-light" role="menu">
+                                                        <li>
+                                                            <a href="#" ng-click="edit(zone)">Edit </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" ng-click="delete(zone)">Delete </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <fieldset ng-hide="true">
+                            <legend></legend>
+                            <div class="form-group" ng-class="{'has-error':Form.zoneCode.$dirty && Form.zoneCode.$invalid || Form.zoneCode.$invalid && Form.$submitted, 'has-success':Form.zoneCode.$valid}">
+                                <label class="control-label">User Name<span class="symbol required"></span></label>
+                                <input type="text" maxlength="5" class="form-control" name="zoneCode" ng-model="zoneCode" required ng-disabled="isEdit" />
+                                <span class="error text-small block" ng-if="Form.zoneCode.$dirty && Form.zoneCode.$invalid || Form.zoneCode.$invalid && Form.$submitted">This field is required</span>
+                            </div>
+
+                            <div class="form-group" ng-class="{'has-error':Form.zoneName.$dirty && Form.zoneName.$invalid || Form.zoneName.$invalid && Form.$submitted, 'has-success':Form.zoneName.$valid}">
+                                <label class="control-label">Password <span class="symbol required"></span></label>
+                                <input type="text" class="form-control" name="zoneName" ng-model="zoneName" required />
+                                <span class="error text-small block" ng-if="Form.zoneName.$dirty && Form.zoneName.$invalid || Form.zoneName.$invalid && Form.$submitted">This filed is required</span>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- end: MAIN -->
+
+<!-- PLACE CONTROLLER HERE -->
+<script src="~/Views/Utility/UserSetup.js"></script>

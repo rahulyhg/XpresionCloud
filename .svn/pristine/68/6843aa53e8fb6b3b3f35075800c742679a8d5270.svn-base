@@ -1,0 +1,96 @@
+------------------------[15/11/2017 5:30 PM]------------------------
+error : ReferenceError: cfpLoadingBar is not defined
+message : cfpLoadingBar is not defined
+line : 
+stack : ReferenceError: cfpLoadingBar is not defined
+    at Scope.$scope.save (eval at globalEval (http://localhost:61120/JS/jquery.js:328:5), <anonymous>:178:9)
+    at fn (eval at compile (http://localhost:61120/JS/angular.js:14605:15), <anonymous>:4:372)
+    at expensiveCheckFn (http://localhost:61120/JS/angular.js:15694:18)
+    at callback (http://localhost:61120/JS/angular.js:25622:17)
+    at Scope.$eval (http://localhost:61120/JS/angular.js:17444:28)
+    at Scope.$apply (http://localhost:61120/JS/angular.js:17544:25)
+    at HTMLButtonElement.<anonymous> (http://localhost:61120/JS/angular.js:25627:23)
+    at HTMLButtonElement.dispatch (http://localhost:61120/JS/jquery.js:4435:9)
+    at HTMLButtonElement.elemData.handle (http://localhost:61120/JS/jquery.js:4121:28)
+cause : 
+url : http://localhost:61120/#/app/Masters/Sales/VendorMaster
+company : LPEX
+user : AASIF
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------
+------------------------[15/11/2017 5:40 PM]------------------------
+error : ReferenceError: cfpLoadingBar is not defined
+message : cfpLoadingBar is not defined
+line : 
+stack : ReferenceError: cfpLoadingBar is not defined
+    at Scope.$scope.save (eval at globalEval (http://localhost:61120/JS/jquery.js:328:5), <anonymous>:179:9)
+    at fn (eval at compile (http://localhost:61120/JS/angular.js:14605:15), <anonymous>:4:372)
+    at expensiveCheckFn (http://localhost:61120/JS/angular.js:15694:18)
+    at callback (http://localhost:61120/JS/angular.js:25622:17)
+    at Scope.$eval (http://localhost:61120/JS/angular.js:17444:28)
+    at Scope.$apply (http://localhost:61120/JS/angular.js:17544:25)
+    at HTMLButtonElement.<anonymous> (http://localhost:61120/JS/angular.js:25627:23)
+    at HTMLButtonElement.dispatch (http://localhost:61120/JS/jquery.js:4435:9)
+    at HTMLButtonElement.elemData.handle (http://localhost:61120/JS/jquery.js:4121:28)
+cause : 
+url : http://localhost:61120/#/app/Masters/Sales/VendorMaster
+company : LPEX
+user : AASIF
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------
+------------------------[15/11/2017 5:42 PM]------------------------
+error : TypeError: $scope.cancel is not a function
+message : $scope.cancel is not a function
+line : 
+stack : TypeError: $scope.cancel is not a function
+    at eval (eval at globalEval (http://localhost:61120/JS/jquery.js:328:5), <anonymous>:195:28)
+    at processQueue (http://localhost:61120/JS/angular.js:16170:28)
+    at http://localhost:61120/JS/angular.js:16186:27
+    at Scope.$eval (http://localhost:61120/JS/angular.js:17444:28)
+    at Scope.$digest (http://localhost:61120/JS/angular.js:17257:31)
+    at Scope.$apply (http://localhost:61120/JS/angular.js:17552:24)
+    at done (http://localhost:61120/JS/angular.js:11697:47)
+    at completeRequest (http://localhost:61120/JS/angular.js:11903:7)
+    at XMLHttpRequest.requestLoaded (http://localhost:61120/JS/angular.js:11836:9)
+cause : 
+url : http://localhost:61120/#/app/Masters/Sales/VendorMaster
+company : LPEX
+user : AASIF
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------
+------------------------[15/11/2017 5:46 PM]------------------------
+error : TypeError: $scope.cancel is not a function
+message : $scope.cancel is not a function
+line : 
+stack : TypeError: $scope.cancel is not a function
+    at eval (eval at globalEval (http://localhost:61120/JS/jquery.js:328:5), <anonymous>:195:28)
+    at processQueue (http://localhost:61120/JS/angular.js:16170:28)
+    at http://localhost:61120/JS/angular.js:16186:27
+    at Scope.$eval (http://localhost:61120/JS/angular.js:17444:28)
+    at Scope.$digest (http://localhost:61120/JS/angular.js:17257:31)
+    at Scope.$apply (http://localhost:61120/JS/angular.js:17552:24)
+    at done (http://localhost:61120/JS/angular.js:11697:47)
+    at completeRequest (http://localhost:61120/JS/angular.js:11903:7)
+    at XMLHttpRequest.requestLoaded (http://localhost:61120/JS/angular.js:11836:9)
+cause : 
+url : http://localhost:61120/#/app/Masters/Sales/VendorMaster
+company : LPEX
+user : AASIF
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 61.0.3163.100
+--------------------------------------------------------------------

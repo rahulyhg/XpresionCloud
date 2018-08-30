@@ -1,0 +1,69 @@
+------------------------[11/08/2017 2:04 PM]------------------------
+error : ReferenceError: filter is not defined
+message : filter is not defined
+line : 
+stack : ReferenceError: filter is not defined
+    at Scope.$scope.partExport (http://localhost:61120/AngularController/countryController.js?v=1.1:46:30)
+    at fn (eval at compile (http://localhost:61120/JS/angular.js:14605:15), <anonymous>:4:233)
+    at expensiveCheckFn (http://localhost:61120/JS/angular.js:15694:18)
+    at callback (http://localhost:61120/JS/angular.js:25622:17)
+    at Scope.$eval (http://localhost:61120/JS/angular.js:17444:28)
+    at Scope.$apply (http://localhost:61120/JS/angular.js:17544:25)
+    at HTMLAnchorElement.<anonymous> (http://localhost:61120/JS/angular.js:25627:23)
+    at HTMLAnchorElement.dispatch (http://localhost:61120/JS/jquery.js:4435:9)
+    at HTMLAnchorElement.elemData.handle (http://localhost:61120/JS/jquery.js:4121:28)
+cause : 
+url : http://localhost:61120/#/app/Masters/Sales/CountryMaster
+company : LPEX
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 60.0.3112.90
+--------------------------------------------------------------------
+------------------------[11/08/2017 2:05 PM]------------------------
+error : ReferenceError: filter is not defined
+message : filter is not defined
+line : 
+stack : ReferenceError: filter is not defined
+    at Scope.$scope.partExport (http://localhost:61120/AngularController/countryController.js?v=1.1:46:30)
+    at fn (eval at compile (http://localhost:61120/JS/angular.js:14605:15), <anonymous>:4:233)
+    at expensiveCheckFn (http://localhost:61120/JS/angular.js:15694:18)
+    at callback (http://localhost:61120/JS/angular.js:25622:17)
+    at Scope.$eval (http://localhost:61120/JS/angular.js:17444:28)
+    at Scope.$apply (http://localhost:61120/JS/angular.js:17544:25)
+    at HTMLAnchorElement.<anonymous> (http://localhost:61120/JS/angular.js:25627:23)
+    at HTMLAnchorElement.dispatch (http://localhost:61120/JS/jquery.js:4435:9)
+    at HTMLAnchorElement.elemData.handle (http://localhost:61120/JS/jquery.js:4121:28)
+cause : 
+url : http://localhost:61120/#/app/Masters/Sales/CountryMaster
+company : LPEX
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 60.0.3112.90
+--------------------------------------------------------------------
+------------------------[11/08/2017 2:06 PM]------------------------
+error : ReferenceError: filter is not defined
+message : filter is not defined
+line : 
+stack : ReferenceError: filter is not defined
+    at Scope.$scope.partExport (http://localhost:61120/AngularController/countryController.js?v=1.1:46:30)
+    at fn (eval at compile (http://localhost:61120/JS/angular.js:14605:15), <anonymous>:4:233)
+    at expensiveCheckFn (http://localhost:61120/JS/angular.js:15694:18)
+    at callback (http://localhost:61120/JS/angular.js:25622:17)
+    at Scope.$eval (http://localhost:61120/JS/angular.js:17444:28)
+    at Scope.$apply (http://localhost:61120/JS/angular.js:17544:25)
+    at HTMLAnchorElement.<anonymous> (http://localhost:61120/JS/angular.js:25627:23)
+    at HTMLAnchorElement.dispatch (http://localhost:61120/JS/jquery.js:4435:9)
+    at HTMLAnchorElement.elemData.handle (http://localhost:61120/JS/jquery.js:4121:28)
+cause : 
+url : http://localhost:61120/#/app/Masters/Sales/CountryMaster
+company : LPEX
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 60.0.3112.90
+--------------------------------------------------------------------

@@ -1,0 +1,249 @@
+﻿<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+	<div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: MAIN -->
+<div ng-controller="LocationController" class="container-fluid container-fullw padding-bottom-10">
+    @*<form name="Form">*@
+        <div class="row" style="margin-top:-3%">
+            <div class="col-md-12 col-lg-9">
+                <div class="panel panel-white no-radius no-border">
+                <div class="panel-heading border-dark">
+                    <h4 class="panel-title visible-md visible-lg hidden-sm hidden-xs">Location Master </h4>
+                    <div class="panel-tools panel-tools-margins">
+                        <item-no ng-model="pageSize"></item-no>
+                        <exporter data="searchData" file-name="Location.xlsx"></exporter>
+                        <button type="button" class="btn btn-sm btn-primary" ng-click="add()">
+                            Add
+                        </button>
+                    </div>
+                    <ct-paneltool class="panel-tools" tool-refresh="load1" tool-expand="tool-expand"></ct-paneltool>
+                </div>
+                <div class="panel-body">
+                    <div ng-hide="!table">
+                        <ul uib-pagination class="pagination pagination-sm" ng-model="currentPage" max-size="maxSize" total-items="(searchData | filter:search).length" items-per-page="pageSize" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo" boundary-link-numbers="false" boundary-links="true" rotate="false" force-ellipses="true" style="margin: 0;"></ul>
+                        <span class="pull-right">
+                            Total no. of Record(s) : {{total}}
+                        </span>
+                    </div>
+                    <div class="table-responsive" ng-show="table" ng-init="table=true">
+                        <table class="table table-striped table-bordered table-hover margin-bottom-100 filter-header">
+                            <thead table-head data="searchData"
+                                box-list="checked_fields"
+                                delete="delete(checked_fields)"
+                                export="partExport('red')"
+                                loading="ldloading"
+                                search="search"
+                                update-filter="updateFilter()"
+                                is-action="true"
+                                sort-type="sortType"
+                                sort-reverse="sortReverse">
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="Loc in filtered | orderBy : sortType : sortReverse | filter:search | startFrom : currentPage : pageSize| limitTo:pageSize ">
+                                    <td>
+                                        <div class="checkbox clip-check select-check check-primary">
+                                            <input type="checkbox" id="{{Loc.Loc_Code}}" value="{{indexOfItem(Loc)}}" check-list="checked_fields">
+                                            <label for="{{Loc.Loc_Code}}" />
+                                        </div>
+                                    </td>
+                                    <td>{{Loc.Loc_Code}}</td>
+                                    <td>{{Loc.Loc_Name}}</td>
+                                    <td>{{Loc.branch_name}}</td>
+                                    
+                                    <td ng-hide="checked_fields.length>0">
+                                        <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                            <a href="#" class="btn btn-transparent btn-xs" tooltip-placement="top" uib-tooltip="Edit" ng-click="edit(Loc.Loc_Code)"><i class="fa fa-pencil"></i></a>
+                                            <a href="#" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" uib-tooltip="Delete" ng-click="delete(Loc.Loc_Code)"><i class="fa fa-times fa fa-white"></i></a>
+                                        </div>
+                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                            <div class="btn-group" uib-dropdown>
+                                                <button type="button" class="btn btn-primary btn-o btn-sm dropdown-toggle" uib-dropdown-toggle>
+                                                    <i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu pull-right dropdown-light" role="menu">
+                                                    <li>
+                                                        <a href="#" ng-click="edit(Loc.Loc_Code)">Edit </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" ng-click="delete(Loc.Loc_Code)">Delete </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div ng-show="!table">
+                        <form name="Form" validation-form novalidate role="form" class="form-horizontal">
+                            <fieldset>
+                                <legend>Location Master</legend>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <div class="form-group" ng-class="{'has-error':Form.locationCode.$dirty && Form.locationCode.$invalid || Form.locationCode.$invalid && Form.$submitted, 'has-success':Form.locationCode.$valid}">
+                                            <label class="control-label">Location Code<span class="symbol required"></span></label>
+                                            <input type="text" maxlength="3" placeholder="Location Code" class="form-control" name="locationCode" ng-model="locationCode" required ng-disabled="isEdit"/>
+                                            <span class="error text-small block" ng-if="Form.locationCode.$dirty && Form.locationCode.$invalid || Form.locationCode.$invalid && Form.$submitted">This field is required</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <div class="form-group" ng-class="{'has-error':Form.locationName.$dirty && Form.locationName.$invalid || Form.locationName.$invalid && Form.$submitted, 'has-success':Form.locationName.$valid}">
+                                            <label class="control-label">Location Name<span class="symbol required"></span></label>
+                                            <input type="text" maxlength="30" placeholder="Location Name" class="form-control" name="locationName" ng-model="locationName" required />
+                                            <span class="error text-small block" ng-if="Form.locationName.$dirty && Form.locationName.$invalid || Form.locationName.$invalid && Form.$submitted">This field is required</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <div class="form-group" ng-class="{'has-error':Form.Origin.$dirty && Form.Origin.$invalid || Form.Origin.$invalid && Form.$submitted, 'has-success':Form.Origin.$valid}">
+                                            <label class="control-label">Branch<span class="symbol required"></span></label>
+                                            @*<input type="text" maxlength="5" placeholder="Branch" class="form-control" name="branch" ng-model="branch" required ng-disabled="isEdit"/>*@
+                                            <auto-text code-model="branchCode" name="Origin" context-key="bmb,,A," style="padding-right:10%" name-model="branch" css-class="form-control input-md" function="GetOrigin" ng-required="true"></auto-text>
+                                            <span class="error text-small block" ng-if="Form.Origin.$dirty && Form.Origin.$invalid || Form.Origin.$invalid && Form.$submitted">This field is required</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <div class="form-group" ng-class="{'has-error':Form.StateName.$dirty && Form.StateName.$invalid || Form.StateName.$invalid && Form.$submitted, 'has-success':Form.StateName.$valid}">
+                                            <label class="control-label">State<span class="symbol required"></span></label>
+                                            @*<input type="text" maxlength="5" placeholder="State" class="form-control" name="state" ng-model="state" required ng-disabled="isEdit"/>*@
+                                            <auto-text code-model="state" name="StateName" context-key="bmb," name-model="StateName" style="padding-right:10%" css-class="form-control input-md" function="Getstate" ng-required="true"></auto-text>
+                                            <span class="error text-small block" ng-if="Form.StateName.$dirty && Form.StateName.$invalid || Form.StateName.$invalid && Form.$submitted">This field is required</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                         <div class="form-group" >
+                                            <label class="control-label">Address 1</label>
+                                            <input type="text" maxlength="30" placeholder="Address 1" class="form-control" name="add1" ng-model="add1" />
+                                            @*<span class="error text-small block" ng-if="Form.add1.$dirty && Form.add1.$invalid || Form.add1.$invalid && Form.$submitted">This field is required</span>*@
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <div class="form-group" >
+                                            <label class="control-label">Address 2</label>
+                                            <input type="text" maxlength="30" placeholder="Address 2" class="form-control" name="add2" ng-model="add2" />
+                                            @*<span class="error text-small block" ng-if="Form.add2.$dirty && Form.add2.$invalid || Form.add2.$invalid && Form.$submitted">This field is required</span>*@
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                         <div class="form-group" >
+                                            <label class="control-label">Address 3</label>
+                                            <input type="text" maxlength="30" placeholder="Address 3" class="form-control" name="add3" ng-model="add3" />
+                                            @*<span class="error text-small block" ng-if="Form.add3.$dirty && Form.add3.$invalid || Form.add3.$invalid && Form.$submitted">This field is required</span>*@
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <div class="form-group" >
+                                            <label class="control-label">SubName</label>
+                                            <input type="text" maxlength="30" placeholder="SubName" class="form-control" name="subname" ng-model="subname" />
+                                            @*<span class="error text-small block" ng-if="Form.subname.$dirty && Form.subname.$invalid || Form.subname.$invalid && Form.$submitted">This field is required</span>*@
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                         <div class="form-group">
+                                            <label class="control-label">Telephone</label>
+                                            <input type="text" maxlength="30" placeholder="Telephone" class="form-control" name="Telphone" ng-model="Telphone" />
+                                            @*<span class="error text-small block" ng-if="Form.Telphone.$dirty && Form.Telphone.$invalid || Form.Telphone.$invalid && Form.$submitted">This field is required</span>*@
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label">Email</label>
+                                            @*<input type="text" maxlength="100" placeholder="Email" class="form-control" name="email" ng-model="email" />*@
+                                            <input type="email" placeholder="Email" maxlength="100" class="form-control" id="email" name="email" ng-model="email" />
+                                            <span class="error text-small block" ng-if="Form.email.$dirty && Form.email.$invalid || Form.email.$invalid && Form.$submitted">This field is required</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                         <div class="form-group">
+                                            <label class="control-label">Sales Account</label>
+                                            <input type="text" maxlength="60" placeholder="Sales Account" class="form-control" name="SalesAcc" ng-model="SalesAcc" />
+                                            @*<span class="error text-small block" ng-if="Form.SalesAcc.$dirty && Form.SalesAcc.$invalid || Form.SalesAcc.$invalid && Form.$submitted">This field is required</span>*@
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label">Last Invoice</label>
+                                            <input type="text" maxlength="12" placeholder="Last Invoice" class="form-control" name="lastInv" ng-model="lastInv" />
+                                            @*<span class="error text-small block" ng-if="Form.lastInv.$dirty && Form.lastInv.$invalid || Form.lastInv.$invalid && Form.$submitted">This field is required</span>*@
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                         <div class="form-group" >
+                                            <label class="control-label">GST No.</label>
+                                            <input type="text" maxlength="15" placeholder="GST No." class="form-control" name="gstno" ng-model="gstno" />
+                                            @*<span class="error text-small block" ng-if="Form.gstno.$dirty && Form.gstno.$invalid || Form.gstno.$invalid && Form.$submitted">This field is required</span>*@
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <input type="checkbox" ng-model="Franchise" id="chkfran" /><label for="chkfran">Franchise</label>
+                                            <input type="checkbox" ng-model="HUB" id="chkhub" /><label for="chkhub">HUB</label>
+                                            <input type="checkbox" ng-model="Billing" id="chkbill" /><label for="chkbill">Billing available</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                         <div class="form-group">
+                                            <label class="control-label">Manifest To HUB</label>
+                                            <input type="radio" title="Internal" checked="checked" ng-model="HUBtype" value="I" id="MHI" /><label for="MHI">Internal</label>
+                                            <input type="radio" title="Other" ng-model="HUBtype" value="O" id="MHO" /><label for="MHO">Other</label> 
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label">Manifest To Center</label>
+                                            <input type="radio" title="Internal" checked="checked" ng-model="CenterType" value="I" id="MCI" /><label for="MCI">Internal</label> 
+                                            <input type="radio" title="Other" ng-model="CenterType" value="O" id="MCO" /><label for="MCO">Other</label> 
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="pull-right">
+                                            <button type="submit" class="btn btn-primary" ng-click="Form.$valid && save()">
+                                                Save
+                                            </button>
+                                            <button type="reset" class="btn btn-primary" ng-click="reset(Form)" ng-disabled="isEdit">
+                                                Reset
+                                            </button>
+                                            <button type="reset" class="btn btn-primary btn-o" ng-click="cancel(Form)">
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    @*</form>*@
+</div>
+<!-- end: MAIN -->
+<script src="~/Views/Location/LocationController.js"></script>
+<!-- PLACE CONTROLLER HERE -->

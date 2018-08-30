@@ -1,0 +1,27 @@
+------------------------[12/08/2017 11:54 AM]------------------------
+error : Error: [orderBy:notarray] Expected array but received: 0
+http://errors.angularjs.org/1.5.7/orderBy/notarray?p0=0
+message : [orderBy:notarray] Expected array but received: 0
+http://errors.angularjs.org/1.5.7/orderBy/notarray?p0=0
+line : 
+stack : Error: [orderBy:notarray] Expected array but received: 0
+http://errors.angularjs.org/1.5.7/orderBy/notarray?p0=0
+    at http://localhost:61120/JS/angular.js:68:12
+    at http://localhost:61120/JS/angular.js:21428:30
+    at fn (eval at compile (http://localhost:61120/JS/angular.js:14605:15), <anonymous>:4:562)
+    at trackByIdExpFn (http://localhost:61120/JS/angular.js:29488:20)
+    at ngRepeatAction (http://localhost:61120/JS/angular.js:29545:25)
+    at $watchCollectionAction (http://localhost:61120/JS/angular.js:17147:13)
+    at Scope.$digest (http://localhost:61120/JS/angular.js:17286:23)
+    at Scope.$apply (http://localhost:61120/JS/angular.js:17552:24)
+    at done (http://localhost:61120/JS/angular.js:11697:47)
+    at completeRequest (http://localhost:61120/JS/angular.js:11903:7)
+cause : 
+url : http://localhost:61120/#/app/Masters/Sales/ZoneMaster
+company : LPEX
+os : windows
+browser : chrome
+device : unknown
+os_version : windows-8
+browser_version : 60.0.3112.90
+--------------------------------------------------------------------

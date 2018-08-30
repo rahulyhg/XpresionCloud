@@ -1,0 +1,242 @@
+﻿
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="{{app.description}}">
+    <meta name="keywords" content="app, responsive, angular, bootstrap, dashboard, admin">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="theme-color" content="#c82e29"/>
+    <title data-ng-bind="pageTitle()">Xpresion - The 'One Time' Management Software For Express Industry</title>
+    <!-- Google fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap -->
+    <link href="~/CSS/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="~/CSS/font-awesome.css" rel="stylesheet" />
+    <!-- Themify Icons -->
+    <link href="~/CSS/themify-icons.css" rel="stylesheet" />
+    <!-- Flag Icons -->
+    <link href="~/CSS/flag-icon.css" rel="stylesheet" />
+    <!-- Loading Bar -->
+    <link href="~/CSS/loading-bar.css" rel="stylesheet" />
+    <!-- Animate Css -->
+    <link href="~/CSS/animate.min.css" rel="stylesheet" />
+    <!-- Perfect Scrollbar Css -->
+    <link href="~/CSS/perfect-scrollbar.css" rel="stylesheet" />
+    <!-- Date Range Picker Css -->
+    <link href="~/CSS/daterangepicker-bs3.css" rel="stylesheet" />
+    <link href="~/CSS/daterangepicker.css" rel="stylesheet" />
+    <link href="~/CSS/bootstrap-datetimepicker.css" rel="stylesheet" />
+    <!-- Angular ui-switch Css -->
+    <link href="~/CSS/angular-ui-switch.css" rel="stylesheet" />
+    <!-- Angular Toaster Css -->
+    <link href="~/CSS/toaster.css" rel="stylesheet" />
+    <!-- Angular Ng-Aside Css -->
+    <link href="~/CSS/angular-aside.css" rel="stylesheet" />
+    <!-- Angular Notification Icons Css -->
+    <link href="~/CSS/angular-notification-icons.css" rel="stylesheet" />
+    <!-- V-Accordion Css -->
+    <link href="~/CSS/v-accordion.css" rel="stylesheet" />
+    <!-- V-Button Css -->
+    <link href="~/CSS/v-button.css" rel="stylesheet" />
+    <!-- Sweet Alert Css -->
+    <link href="~/CSS/sweet-alert.css" rel="stylesheet" />
+    <!-- Ladda Buttons Css -->
+    <link href="~/CSS/ladda-themeless.min.css" rel="stylesheet" />
+    <!-- Angular Awesome Slider Css -->
+    <link href="~/CSS/angular-awesome-slider.min.css" rel="stylesheet" />
+    <!-- Slick Carousel Css -->
+    <link href="~/CSS/slick.css" rel="stylesheet" />
+    <link href="~/CSS/slick-theme.css" rel="stylesheet" />
+    <!-- PNotify -->
+    <link href="~/CSS/pnotify.css" rel="stylesheet" />
+    <link href="~/CSS/pnotify.mobile.css" rel="stylesheet" />
+    <link href="~/CSS/pnotify.buttons.css" rel="stylesheet" />
+    <!-- Packet CSS -->
+    <link href="~/CSS/styles.css" rel="stylesheet" />
+    <link href="~/CSS/plugins.css" rel="stylesheet" />
+    <!-- Packet Theme -->
+    <link rel="stylesheet" data-ng-href="Themes/{{ app.layout.theme }}.css" />
+    <!-- Rv Theme -->
+    <link href="~/CSS/CustomStyle.css" rel="stylesheet" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" />
+    <script>
+        function pageLoad() {
+            $(':input').keydown(function (e) {
+                var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+                if (key == 13) {
+
+                    var focused = document.activeElement;
+                    if (focused.nodeName == 'BUTTON')
+                        return;
+                    else
+                        e.preventDefault();
+                    var inputs = $(this).closest('form').find(':input:visible:enabled');
+                    if ((inputs.length - 1) == inputs.index(this)) {
+                        $(':input:enabled:visible:first').focus().select();
+                    }
+                    else {
+                        inputs.eq(inputs.index(this) + 1).focus().select();
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body ng-controller="AppCtrl" onload="pageLoad()">
+    @RenderBody()
+    <!-- jQuery -->
+    <script src="~/JS/jquery.js"></script>
+    <!-- Fastclick -->
+    <script src="~/JS/fastclick.js"></script>
+    <!-- Modernizr -->
+    <script src="~/JS/modernizr.js"></script>
+    
+    <!-- Perfect Scrollbar -->
+    <script src="~/JS/perfect-scrollbar.jquery.min.js"></script>
+    <!-- Date Range Picker -->
+
+    <!-- Sweet Alert -->
+    <script src="~/JS/sweet-alert.min.js"></script>
+    <!-- Spin -->
+    <script src="~/JS/spin.min.js"></script>
+    <!-- Ladda Buttons -->
+    <script src="~/JS/ladda.min.js"></script>
+    <!-- Angular -->
+    <script src="~/JS/angular.js"></script>
+    <script src="~/JS/angular-cookies.min.js"></script>
+    <script src="~/JS/angular-animate.min.js"></script>
+    <script src="~/JS/angular-touch.min.js"></script>
+    <script src="~/JS/angular-sanitize.min.js"></script>
+    <script src="~/JS/angular-ui-router.min.js"></script>
+    <!-- Angular storage -->
+    <script src="~/JS/ngStorage.min.js"></script>
+    <!-- Angular Translate -->
+    <script src="~/JS/angular-translate.min.js"></script>
+    <script src="~/JS/angular-translate-loader-url.min.js"></script>
+    <script src="~/JS/angular-translate-loader-static-files.min.js"></script>
+    <script src="~/JS/angular-translate-storage-local.min.js"></script>
+    <script src="~/JS/angular-translate-storage-cookie.min.js"></script>
+
+    <!-- ngResource -->
+    <script src="~/JS/angular-resource.js"></script>
+    <!-- oclazyload -->
+    <script src="~/JS/ocLazyLoad.min.js"></script>
+    <!-- breadcrumb -->
+    <script src="~/JS/angular-breadcrumb.min.js"></script>
+    <!-- angular-swipe -->
+    <script src="~/JS/angular-swipe.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/JS/bootstrap.min.js"></script>
+    <!-- UI Bootstrap -->
+    @*<script src="~/JS/ui-bootstrap-tpls-0.10.0.js"></script>*@
+    @*<script src="~/JS/ui-bootstrap-tpls.min.js"></script>*@
+    <script src="~/JS/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <!-- Loading Bar -->
+    <script src="~/JS/loading-bar.min.js"></script>
+    <!-- Angular Scroll -->
+    <script src="~/JS/angular-scroll.min.js"></script>
+    <!-- Angular Fullscreen -->
+    <script src="~/JS/angular-fullscreen.js"></script>
+    <!-- Moment -->
+    <script src="~/JS/moment.min.js"></script>
+    <script src="~/JS/daterangepicker.js"></script>
+    <script src="~/JS/date.js"></script>
+    <!-- Angular DateRangePicker -->
+    <script src="~/JS/ng-bs-daterangepicker.min.js"></script>
+    <script src="~/JS/bootstrap-datetimepicker.min.js"></script>
+    <!-- Angular Truncate -->
+    <script src="~/JS/truncate.js"></script>
+    <!-- Angular Moment -->
+    <script src="~/JS/angular-moment.min.js"></script>
+    <!-- Angular ui-switch -->
+    <script src="~/JS/angular-ui-switch.min.js"></script>
+    <!-- Angular Ladda -->
+    <script src="~/JS/angular-ladda.min.js"></script>
+    <!-- Angular Toaster -->
+    <script src="~/JS/toaster.js"></script>
+    <!-- Angular Ng-Aside -->
+    <script src="~/JS/angular-aside.min.js"></script>
+    <!-- V-Accordion -->
+    <script src="~/JS/v-accordion.min.js"></script>
+    <!-- V-Button -->
+    <script src="~/JS/v-button.min.js"></script>
+    <!-- Angular Sweet Alert -->
+    <script src="~/JS/SweetAlert.min.js"></script>
+    <!-- Angular Notification Icons -->
+    <script src="~/JS/angular-notification-icons.min.js"></script>
+    <!-- Angular Awesome Slider -->
+    <script src="~/JS/angular-awesome-slider.min.js"></script>
+    <!-- Angular Slick Carousel -->
+    <script src="~/JS/angular-slick.min.js"></script>
+    <!-- Angular Device Detector -->
+    <script src="~/JS/ng-device-detector.min.js"></script>
+    <!-- Angular Re-Tree -->
+    <script src="~/JS/re-tree.min.js"></script>
+    <!-- Firebase | AngularFire -->
+    <script src="~/JS/firebase.js"></script>
+    <script src="~/JS/angularfire.min.js"></script>
+    <script src="~/JS/fire-config.js"></script>
+    <!-- PNotify -->
+    <script src="~/JS/pnotify.js"></script>
+    <script src="~/JS/pnotify.mobile.js"></script>
+    <script src="~/JS/pnotify.animate.js"></script>
+    <script src="~/JS/pnotify.buttons.js"></script>
+    <script src="~/JS/pnotify.callbacks.js"></script>
+    <script src="~/JS/pnotify.confirm.js"></script>
+    <!-- jquery.inputmask -->
+    <script src="~/JS/mask.js"></script>
+    <script src="~/JS/jquery.inputmask.bundle.min.js"></script>
+    <!-- Custom Js -->
+    <script src="~/JS/custom.js?v=2.0"></script>
+    <!-- Packet Scripts -->
+    <script src="~/AnuglarConfig/app.js"></script>
+    <script src="~/AnuglarConfig/main.js"></script>
+    <script src="~/AnuglarConfig/config.constant.js?v=1.0"></script>
+    <script src="~/AnuglarConfig/config.router.js"></script>
+    
+    <!-- Packet Directives -->
+    <script src="~/Directives/letter-icon.js"></script>
+    <script src="~/Directives/toggle.js"></script>
+    <script src="~/Directives/off-click.js"></script>
+    <script src="~/Directives/chat.js"></script>
+    <script src="~/Directives/char-limit.js"></script>
+    <script src="~/Directives/compare-to.js"></script>
+    <script src="~/Directives/ct-crop.js"></script>
+    <script src="~/Directives/dismiss.js"></script>
+    <script src="~/Directives/empty-links.js"></script>
+    <script src="~/Directives/file-upload.js"></script>
+    <script src="~/Directives/full-height.js"></script>
+    <script src="~/Directives/landing-header.js"></script>
+    <script src="~/Directives/messages.js"></script>
+    <script src="~/Directives/panel-tools.js"></script>
+    <script src="~/Directives/perfect-scrollbar.js"></script>
+    <script src="~/Directives/select.js"></script>
+    <script src="~/Directives/sidebars.js"></script>
+    <script src="~/Directives/touchspin.js"></script>
+    <script src="~/Directives/check-list.js"></script>
+    <script src="~/Directives/no-of-pages.js"></script>
+    <script src="~/Directives/next-focus.js"></script>
+    <script src="~/Directives/startFrom.js"></script>
+    <script src="~/Directives/exporter.js"></script>
+    <script src="~/Directives/table-head.js?v=1.0"></script>
+    <script src="~/Directives/numberOnly.js"></script>
+    <script src="~/Directives/auto-text.js"></script>
+    <script src="~/Directives/validationForm.js"></script>
+    <script src="~/Directives/datePicker.js"></script>
+    <!-- Packet Controllers -->
+    <script src="~/AppController/bootstrapCtrl.js"></script>
+    <script src="~/AppController/chatCtrl.js"></script>
+    <script src="~/AppController/inboxCtrl.js"></script>
+    <script src="~/AppController/mainCtrl.js?v=1.1"></script>
+    <script src="~/AppController/userCtrl.js"></script>
+    <!-- Application Controllers -->
+    
+</body>
+</html>

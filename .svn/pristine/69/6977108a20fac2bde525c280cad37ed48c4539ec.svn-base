@@ -1,0 +1,828 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AE581884-D3CA-4D3B-88EF-D679C916A42D}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XpresionCloud</RootNamespace>
+    <AssemblyName>XpresionCloud</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML">
+      <HintPath>..\packages\ClosedXML.0.87.1\lib\net40\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SpreadsheetLight">
+      <HintPath>E:\developer\ravi\xponline\UI\Bin\SpreadsheetLight.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Compression.Base">
+      <HintPath>..\packages\Syncfusion.Web.FileFormatsBase40.15.3.0.33\lib\net40\Syncfusion.Compression.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DocIO.Base">
+      <HintPath>..\packages\Syncfusion.Web.FileFormatsBase40.15.3.0.33\lib\net40\Syncfusion.DocIO.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DocIO.Helper.Mvc">
+      <HintPath>..\packages\Syncfusion.AspNet.Mvc4.FileFormatsHelper.15.3.0.33\lib\net40\Syncfusion.DocIO.Helper.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DocToPDFConverter.Base">
+      <HintPath>..\packages\Syncfusion.AspNet.Mvc4.FileFormats.15.3.0.33\lib\net40\Syncfusion.DocToPDFConverter.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.ExcelChartToImageConverter.WPF">
+      <HintPath>..\packages\Syncfusion.AspNet.Mvc4.FileFormats.15.3.0.33\lib\net40\Syncfusion.ExcelChartToImageConverter.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.ExcelToPDFConverter.Base">
+      <HintPath>..\packages\Syncfusion.AspNet.Mvc4.FileFormats.15.3.0.33\lib\net40\Syncfusion.ExcelToPDFConverter.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.HtmlConverter.Base">
+      <HintPath>..\packages\Syncfusion.AspNet.Mvc4.FileFormats.15.3.0.33\lib\net40\Syncfusion.HtmlConverter.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.OfficeChart.Base">
+      <HintPath>..\packages\Syncfusion.Web.FileFormatsBase40.15.3.0.33\lib\net40\Syncfusion.OfficeChart.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.OfficeChartToImageConverter.WPF">
+      <HintPath>..\packages\Syncfusion.AspNet.Mvc4.FileFormats.15.3.0.33\lib\net40\Syncfusion.OfficeChartToImageConverter.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Base">
+      <HintPath>..\packages\Syncfusion.Web.FileFormatsBase40.15.3.0.33\lib\net40\Syncfusion.Pdf.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Helper.Mvc">
+      <HintPath>..\packages\Syncfusion.AspNet.Mvc4.FileFormatsHelper.15.3.0.33\lib\net40\Syncfusion.Pdf.Helper.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Presentation.Base">
+      <HintPath>..\packages\Syncfusion.Web.FileFormatsBase40.15.3.0.33\lib\net40\Syncfusion.Presentation.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.PresentationToPDFConverter.Base">
+      <HintPath>..\packages\Syncfusion.AspNet.Mvc4.FileFormats.15.3.0.33\lib\net40\Syncfusion.PresentationToPDFConverter.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfChart.WPF">
+      <HintPath>..\packages\Syncfusion.AspNet.Mvc4.FileFormats.15.3.0.33\lib\net40\Syncfusion.SfChart.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.XlsIO.Base">
+      <HintPath>..\packages\Syncfusion.Web.FileFormatsBase40.15.3.0.33\lib\net40\Syncfusion.XlsIO.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.XlsIO.Helper.Mvc">
+      <HintPath>..\packages\Syncfusion.AspNet.Mvc4.FileFormatsHelper.15.3.0.33\lib\net40\Syncfusion.XlsIO.Helper.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CodeTemplates\AddController\ApiController.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApiController.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeTemplates\AddController\ApiControllerWithContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApiControllerWithContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeTemplates\AddController\Controller.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Controller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeTemplates\AddController\ControllerWithContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControllerWithContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeTemplates\AddView\AspxCSharp\Create.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeTemplates\AddView\AspxCSharp\Delete.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Delete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeTemplates\AddView\AspxCSharp\Details.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Details.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeTemplates\AddView\AspxCSharp\Edit.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeTemplates\AddView\AspxCSharp\Empty.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Empty.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeTemplates\AddView\AspxCSharp\List.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>List.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AppController.cs" />
+    <Compile Include="Controllers\BranchController.cs" />
+    <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\IndentController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\UtilityController.cs" />
+    <Compile Include="Controllers\VendorMasterController.cs" />
+    <Compile Include="Controllers\XpresionController.cs" />
+    <Compile Include="Controllers\ZoneController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="AnuglarConfig\app.js" />
+    <Content Include="AnuglarConfig\config.constant.js" />
+    <Content Include="AnuglarConfig\config.router.js" />
+    <Content Include="AnuglarConfig\main.js" />
+    <Content Include="AppController\bootstrapCtrl.js" />
+    <Content Include="AppController\chatCtrl.js" />
+    <Content Include="AppController\inboxCtrl.js" />
+    <Content Include="AppController\mainCtrl.js" />
+    <Content Include="AppController\userCtrl.js" />
+    <Content Include="assets\images\africa-17344_640.jpg" />
+    <Content Include="assets\images\avatar-1-big.jpg" />
+    <Content Include="assets\images\avatar-1-small.jpg" />
+    <Content Include="assets\images\avatar-1-xl.jpg" />
+    <Content Include="assets\images\avatar-1.jpg" />
+    <Content Include="assets\images\avatar-10.jpg" />
+    <Content Include="assets\images\avatar-2-small.jpg" />
+    <Content Include="assets\images\avatar-2.jpg" />
+    <Content Include="assets\images\avatar-3-small.jpg" />
+    <Content Include="assets\images\avatar-3.jpg" />
+    <Content Include="assets\images\avatar-4-small.jpg" />
+    <Content Include="assets\images\avatar-4.jpg" />
+    <Content Include="assets\images\avatar-5-small.jpg" />
+    <Content Include="assets\images\avatar-5.jpg" />
+    <Content Include="assets\images\avatar-6.jpg" />
+    <Content Include="assets\images\avatar-7.jpg" />
+    <Content Include="assets\images\avatar-8.jpg" />
+    <Content Include="assets\images\avatar-9.jpg" />
+    <Content Include="assets\images\bg.png" />
+    <Content Include="assets\images\carousel\01.jpg" />
+    <Content Include="assets\images\carousel\02.jpg" />
+    <Content Include="assets\images\carousel\03.jpg" />
+    <Content Include="assets\images\carousel\04.jpg" />
+    <Content Include="assets\images\carousel\05.jpg" />
+    <Content Include="assets\images\carousel\06.jpg" />
+    <Content Include="assets\images\carousel\07.jpg" />
+    <Content Include="assets\images\carousel\carousel001.jpg" />
+    <Content Include="assets\images\carousel\carousel002.jpg" />
+    <Content Include="assets\images\dark_dots.png" />
+    <Content Include="assets\images\default-user.png" />
+    <Content Include="assets\images\desktop.png" />
+    <Content Include="assets\images\graphic.jpg" />
+    <Content Include="assets\images\iphone.png" />
+    <Content Include="assets\images\laptop.png" />
+    <Content Include="assets\images\layout-1.jpg" />
+    <Content Include="assets\images\layout-2.jpg" />
+    <Content Include="assets\images\layout-3.jpg" />
+    <Content Include="assets\images\layout-4.jpg" />
+    <Content Include="assets\images\layouts\layout1-1.jpg" />
+    <Content Include="assets\images\layouts\layout1-2.jpg" />
+    <Content Include="assets\images\layouts\layout1-3.jpg" />
+    <Content Include="assets\images\layouts\layout1-4.jpg" />
+    <Content Include="assets\images\layouts\layout1-5.jpg" />
+    <Content Include="assets\images\layouts\layout1-6.jpg" />
+    <Content Include="assets\images\layouts\layout2-1.jpg" />
+    <Content Include="assets\images\layouts\layout2-2.jpg" />
+    <Content Include="assets\images\layouts\layout2-3.jpg" />
+    <Content Include="assets\images\layouts\layout2-4.jpg" />
+    <Content Include="assets\images\layouts\layout2-5.jpg" />
+    <Content Include="assets\images\layouts\layout2-6.jpg" />
+    <Content Include="assets\images\layouts\layout3-1.jpg" />
+    <Content Include="assets\images\layouts\layout3-2.jpg" />
+    <Content Include="assets\images\layouts\layout3-3.jpg" />
+    <Content Include="assets\images\layouts\layout3-4.jpg" />
+    <Content Include="assets\images\layouts\layout3-5.jpg" />
+    <Content Include="assets\images\layouts\layout3-6.jpg" />
+    <Content Include="assets\images\layouts\layout4-1.jpg" />
+    <Content Include="assets\images\layouts\layout4-2.jpg" />
+    <Content Include="assets\images\layouts\layout4-3.jpg" />
+    <Content Include="assets\images\layouts\layout4-4.jpg" />
+    <Content Include="assets\images\layouts\layout4-5.jpg" />
+    <Content Include="assets\images\layouts\layout4-6.jpg" />
+    <Content Include="assets\images\layouts\layout5-1.jpg" />
+    <Content Include="assets\images\layouts\layout5-2.jpg" />
+    <Content Include="assets\images\layouts\layout5-3.jpg" />
+    <Content Include="assets\images\layouts\layout5-4.jpg" />
+    <Content Include="assets\images\layouts\layout5-5.jpg" />
+    <Content Include="assets\images\layouts\layout5-6.jpg" />
+    <Content Include="assets\images\layouts\layout6-1.jpg" />
+    <Content Include="assets\images\layouts\layout6-2.jpg" />
+    <Content Include="assets\images\layouts\layout6-3.jpg" />
+    <Content Include="assets\images\layouts\layout6-4.jpg" />
+    <Content Include="assets\images\layouts\layout6-5.jpg" />
+    <Content Include="assets\images\layouts\layout6-6.jpg" />
+    <Content Include="assets\images\line_detail.png" />
+    <Content Include="assets\images\lion-403764_640.jpg" />
+    <Content Include="assets\images\lion-565818_640.jpg" />
+    <Content Include="assets\images\lion-565820_640.jpg" />
+    <Content Include="assets\images\logo-big.png" />
+    <Content Include="assets\images\logo-collapsed.png" />
+    <Content Include="assets\images\logo-collapsed2.png" />
+    <Content Include="assets\images\logo.png" />
+    <Content Include="assets\images\logo2.png" />
+    <Content Include="assets\images\media-user.png" />
+    <Content Include="assets\images\note_dot.png" />
+    <Content Include="assets\images\photodune-4043508-3d-modern-office-room-l.jpg" />
+    <Content Include="assets\images\picture.svg" />
+    <Content Include="assets\images\plane.png" />
+    <Content Include="assets\images\portfolio\image01.jpg" />
+    <Content Include="assets\images\portfolio\image01_th.jpg" />
+    <Content Include="assets\images\portfolio\image02.jpg" />
+    <Content Include="assets\images\portfolio\image02_th.jpg" />
+    <Content Include="assets\images\portfolio\image03.jpg" />
+    <Content Include="assets\images\portfolio\image03_th.jpg" />
+    <Content Include="assets\images\portfolio\image04.jpg" />
+    <Content Include="assets\images\portfolio\image04_th.jpg" />
+    <Content Include="assets\images\portfolio\image05.jpg" />
+    <Content Include="assets\images\portfolio\image05_th.jpg" />
+    <Content Include="assets\images\portfolio\image06.jpg" />
+    <Content Include="assets\images\portfolio\image06_th.jpg" />
+    <Content Include="assets\images\portfolio\image07.jpg" />
+    <Content Include="assets\images\portfolio\image07_th.jpg" />
+    <Content Include="assets\images\portfolio\image08.jpg" />
+    <Content Include="assets\images\portfolio\image08_th.jpg" />
+    <Content Include="assets\images\section_features.png" />
+    <Content Include="assets\images\section_testimonials.jpg" />
+    <Content Include="assets\images\team-1.jpg" />
+    <Content Include="assets\images\team-10.jpg" />
+    <Content Include="assets\images\team-11.jpg" />
+    <Content Include="assets\images\team-12.jpg" />
+    <Content Include="assets\images\team-2.jpg" />
+    <Content Include="assets\images\team-3.jpg" />
+    <Content Include="assets\images\team-4.jpg" />
+    <Content Include="assets\images\team-5.jpg" />
+    <Content Include="assets\images\team-6.jpg" />
+    <Content Include="assets\images\team-7.jpg" />
+    <Content Include="assets\images\team-8.jpg" />
+    <Content Include="assets\images\team-9.jpg" />
+    <Content Include="assets\images\user-background.png" />
+    <Content Include="assets\images\word_map.png" />
+    <Content Include="assets\images\your-logo-here.png" />
+    <Content Include="assets\partials\footer.html" />
+    <Content Include="assets\partials\horizontal-menu.html" />
+    <Content Include="assets\partials\main-content.html" />
+    <Content Include="assets\partials\nav.html" />
+    <Content Include="assets\partials\off-sidebar.html" />
+    <Content Include="assets\partials\settings.html" />
+    <Content Include="assets\partials\sidebar.html" />
+    <Content Include="assets\partials\top-navbar.html" />
+    <Content Include="CSS\angular-aside.css" />
+    <Content Include="CSS\angular-awesome-slider.min.css" />
+    <Content Include="CSS\angular-chart.min.css" />
+    <Content Include="CSS\angular-notification-icons.css" />
+    <Content Include="CSS\angular-ui-switch.css" />
+    <Content Include="CSS\animate.min.css" />
+    <Content Include="CSS\bootstrap-datetimepicker.css" />
+    <Content Include="CSS\bootstrap-slider.css" />
+    <Content Include="CSS\bootstrap.min.css" />
+    <Content Include="CSS\CustomStyle.css" />
+    <Content Include="CSS\daterangepicker-bs3.css" />
+    <Content Include="CSS\daterangepicker.css" />
+    <Content Include="CSS\flag-icon.css" />
+    <Content Include="CSS\font-awesome.css" />
+    <Content Include="CSS\jquery.bootstrap-touchspin.min.css" />
+    <Content Include="CSS\jquery.Jcrop.min.css" />
+    <Content Include="CSS\ladda-themeless.min.css" />
+    <Content Include="CSS\loading-bar.css" />
+    <Content Include="CSS\lyt1-theme-1.css" />
+    <Content Include="CSS\ng-table.css" />
+    <Content Include="CSS\ng-table.min.css" />
+    <Content Include="CSS\perfect-scrollbar.css" />
+    <Content Include="CSS\plugins.css" />
+    <Content Include="CSS\pnotify.buttons.css" />
+    <Content Include="CSS\pnotify.css" />
+    <Content Include="CSS\pnotify.mobile.css" />
+    <Content Include="CSS\slick-theme.css" />
+    <Content Include="CSS\slick.css" />
+    <Content Include="CSS\spectrum.css" />
+    <Content Include="CSS\styles.css" />
+    <Content Include="CSS\sweet-alert.css" />
+    <Content Include="CSS\switchery.css" />
+    <Content Include="CSS\themify-icons.css" />
+    <Content Include="CSS\toaster.css" />
+    <Content Include="CSS\v-accordion.css" />
+    <Content Include="CSS\v-button.css" />
+    <Content Include="Directives\auto-text.js" />
+    <Content Include="Directives\char-limit.js" />
+    <Content Include="Directives\chat.js" />
+    <Content Include="Directives\check-list.js" />
+    <Content Include="Directives\compare-to.js" />
+    <Content Include="Directives\ct-crop.js" />
+    <Content Include="Directives\datePicker.js" />
+    <Content Include="Directives\dismiss.js" />
+    <Content Include="Directives\empty-links.js" />
+    <Content Include="Directives\exporter.js" />
+    <Content Include="Directives\file-upload.js" />
+    <Content Include="Directives\full-height.js" />
+    <Content Include="Directives\hasPermission.js" />
+    <Content Include="Directives\input-validate.js" />
+    <Content Include="Directives\landing-header.js" />
+    <Content Include="Directives\letter-icon.js" />
+    <Content Include="Directives\messages.js" />
+    <Content Include="Directives\no-of-pages.js" />
+    <Content Include="Directives\numberOnly.js" />
+    <Content Include="Directives\off-click.js" />
+    <Content Include="Directives\panel-tools.js" />
+    <Content Include="Directives\perfect-scrollbar.js" />
+    <Content Include="Directives\report-table.js" />
+    <Content Include="Directives\select.js" />
+    <Content Include="Directives\sidebars.js" />
+    <Content Include="Directives\startFrom.js" />
+    <Content Include="Directives\table-head.js" />
+    <Content Include="Directives\toggle.js" />
+    <Content Include="Directives\touchspin.js" />
+    <Content Include="Directives\validationForm.js" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\slick.svg" />
+    <Content Include="fonts\themify.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="JS\angular-animate.min.js" />
+    <Content Include="JS\angular-aside.min.js" />
+    <Content Include="JS\angular-awesome-slider.min.js" />
+    <Content Include="JS\angular-breadcrumb.min.js" />
+    <Content Include="JS\angular-cookies.min.js" />
+    <Content Include="JS\angular-fullscreen.js" />
+    <Content Include="JS\angular-ladda.min.js" />
+    <Content Include="JS\angular-moment.min.js" />
+    <Content Include="JS\angular-notification-icons.min.js" />
+    <Content Include="JS\angular-resource.js" />
+    <Content Include="JS\angular-sanitize.min.js" />
+    <Content Include="JS\angular-scroll.min.js" />
+    <Content Include="JS\angular-slick.min.js" />
+    <Content Include="JS\angular-swipe.min.js" />
+    <Content Include="JS\angular-touch.min.js" />
+    <Content Include="JS\angular-translate-loader-static-files.min.js" />
+    <Content Include="JS\angular-translate-loader-url.min.js" />
+    <Content Include="JS\angular-translate-storage-cookie.min.js" />
+    <Content Include="JS\angular-translate-storage-local.min.js" />
+    <Content Include="JS\angular-translate.min.js" />
+    <Content Include="JS\angular-ui-router.min.js" />
+    <Content Include="JS\angular-ui-switch.min.js" />
+    <Content Include="JS\angular.js" />
+    <Content Include="JS\angularfire.min.js" />
+    <Content Include="JS\bootstrap-datetimepicker.min.js" />
+    <Content Include="JS\bootstrap.min.js" />
+    <Content Include="JS\custom.js" />
+    <Content Include="JS\date.js" />
+    <Content Include="JS\daterangepicker.js" />
+    <Content Include="JS\fastclick.js" />
+    <Content Include="JS\fire-config.js" />
+    <Content Include="JS\firebase.js" />
+    <Content Include="JS\jquery.inputmask.bundle.min.js" />
+    <Content Include="JS\jquery.js" />
+    <Content Include="JS\ladda.min.js" />
+    <Content Include="JS\loading-bar.min.js" />
+    <Content Include="JS\mask.js" />
+    <Content Include="JS\modernizr.js" />
+    <Content Include="JS\moment.min.js" />
+    <Content Include="Directives\next-focus.js" />
+    <Content Include="JS\ng-bs-daterangepicker.min.js" />
+    <Content Include="JS\ng-device-detector.min.js" />
+    <Content Include="JS\ng-table.js" />
+    <Content Include="JS\ng-table.min.js" />
+    <Content Include="JS\ngStorage.min.js" />
+    <Content Include="JS\ocLazyLoad.min.js" />
+    <Content Include="JS\perfect-scrollbar.jquery.min.js" />
+    <Content Include="JS\pnotify.animate.js" />
+    <Content Include="JS\pnotify.buttons.js" />
+    <Content Include="JS\pnotify.callbacks.js" />
+    <Content Include="JS\pnotify.confirm.js" />
+    <Content Include="JS\pnotify.js" />
+    <Content Include="JS\pnotify.mobile.js" />
+    <Content Include="JS\re-tree.min.js" />
+    <Content Include="JS\slick.min.js" />
+    <Content Include="JS\spin.min.js" />
+    <Content Include="JS\sweet-alert.min.js" />
+    <Content Include="JS\SweetAlert.min.js" />
+    <Content Include="JS\toaster.js" />
+    <Content Include="JS\truncate.js" />
+    <Content Include="JS\ui-bootstrap-tpls-0.10.0.js" />
+    <Content Include="JS\ui-bootstrap-tpls-2.5.0.min.js" />
+    <Content Include="JS\ui-bootstrap-tpls.min.js" />
+    <Content Include="JS\v-accordion.min.js" />
+    <Content Include="JS\v-button.min.js" />
+    <Content Include="Themes\lyt1-theme-1.css" />
+    <Content Include="Themes\lyt1-theme-2.css" />
+    <Content Include="Themes\lyt1-theme-3.css" />
+    <Content Include="Themes\lyt1-theme-4.css" />
+    <Content Include="Themes\lyt1-theme-5.css" />
+    <Content Include="Themes\lyt1-theme-6.css" />
+    <Content Include="Themes\lyt1-theme-7.css" />
+    <Content Include="Themes\lyt2-theme-1.css" />
+    <Content Include="Themes\lyt2-theme-2.css" />
+    <Content Include="Themes\lyt2-theme-3.css" />
+    <Content Include="Themes\lyt2-theme-4.css" />
+    <Content Include="Themes\lyt2-theme-5.css" />
+    <Content Include="Themes\lyt2-theme-6.css" />
+    <Content Include="Themes\lyt3-theme-1.css" />
+    <Content Include="Themes\lyt3-theme-2.css" />
+    <Content Include="Themes\lyt3-theme-3.css" />
+    <Content Include="Themes\lyt3-theme-4.css" />
+    <Content Include="Themes\lyt3-theme-5.css" />
+    <Content Include="Themes\lyt3-theme-6.css" />
+    <Content Include="Themes\lyt4-theme-1.css" />
+    <Content Include="Themes\lyt4-theme-2.css" />
+    <Content Include="Themes\lyt4-theme-3.css" />
+    <Content Include="Themes\lyt4-theme-4.css" />
+    <Content Include="Themes\lyt4-theme-5.css" />
+    <Content Include="Themes\lyt4-theme-6.css" />
+    <Content Include="Themes\lyt5-theme-1.css" />
+    <Content Include="Themes\lyt5-theme-2.css" />
+    <Content Include="Themes\lyt5-theme-3.css" />
+    <Content Include="Themes\lyt5-theme-4.css" />
+    <Content Include="Themes\lyt5-theme-5.css" />
+    <Content Include="Themes\lyt5-theme-6.css" />
+    <Content Include="Themes\lyt6-theme-1.css" />
+    <Content Include="Themes\lyt6-theme-2.css" />
+    <Content Include="Themes\lyt6-theme-3.css" />
+    <Content Include="Themes\lyt6-theme-4.css" />
+    <Content Include="Themes\lyt6-theme-5.css" />
+    <Content Include="Themes\lyt6-theme-6.css" />
+    <Content Include="Themes\theme-1.css" />
+    <Content Include="Themes\theme-2.css" />
+    <Content Include="Themes\theme-3.css" />
+    <Content Include="Themes\theme-4.css" />
+    <Content Include="Themes\theme-5.css" />
+    <Content Include="Themes\theme-6.css" />
+    <Content Include="Views\Branch\BranchController.js" />
+    <Content Include="Views\Country\countryController.js" />
+    <Content Include="Views\Country\RVController1.js" />
+    <Content Include="Views\Indent\IndentController.js" />
+    <Content Include="Views\Product\productController.js" />
+    <Content Include="Views\Report\OpsReport.js" />
+    <Content Include="Views\Report\ScanReport.js" />
+    <Content Include="Views\Utility\UserSetup.js" />
+    <Content Include="Views\VendorMaster\VendorMasterController.js" />
+    <Content Include="Views\Xpresion\loginController.js" />
+    <Content Include="Views\Zone\zoneController.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AngularController\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_XpresionMaster.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Xpresion\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Xpresion\UI.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\slick.eot" />
+    <Content Include="fonts\slick.ttf" />
+    <Content Include="fonts\slick.woff" />
+    <Content Include="fonts\themify.eot" />
+    <Content Include="fonts\themify.ttf" />
+    <Content Include="fonts\themify.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\images\portfolio\Thumbs.db" />
+    <Content Include="assets\images\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Zone\ZoneIndex.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Xpresion\Dashboard.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\ProductIndex.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Xpresion\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Xpresion\Error500.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Xpresion\Error404.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Xpresion\Error403.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Country\CountryIndex.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Indent\IndentIndex.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Report\ScanReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\AddController\ApiController.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ApiController.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeTemplates\AddController\ApiControllerWithContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ApiControllerWithContext.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeTemplates\AddController\Controller.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Controller.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeTemplates\AddController\ControllerWithContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ControllerWithContext.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeTemplates\AddView\AspxCSharp\Create.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Create.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeTemplates\AddView\AspxCSharp\Delete.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Delete.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeTemplates\AddView\AspxCSharp\Details.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Details.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeTemplates\AddView\AspxCSharp\Edit.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Edit.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeTemplates\AddView\AspxCSharp\Empty.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Empty.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeTemplates\AddView\AspxCSharp\List.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>List.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeTemplates\AddView\CSHTML\Create.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Create.cshtml</LastGenOutput>
+    </Content>
+    <Content Include="CodeTemplates\AddView\CSHTML\Delete.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Delete.cshtml</LastGenOutput>
+    </Content>
+    <Content Include="CodeTemplates\AddView\CSHTML\Details.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Details.cshtml</LastGenOutput>
+    </Content>
+    <Content Include="CodeTemplates\AddView\CSHTML\Edit.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Edit.cshtml</LastGenOutput>
+    </Content>
+    <Content Include="CodeTemplates\AddView\CSHTML\Empty.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Empty.cshtml</LastGenOutput>
+    </Content>
+    <Content Include="CodeTemplates\AddView\CSHTML\List.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>List.cshtml</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\AddView\CSHTML\Create.cshtml">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.tt</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\AddView\CSHTML\Delete.cshtml">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Delete.tt</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\AddView\CSHTML\Details.cshtml">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Details.tt</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\AddView\CSHTML\Edit.cshtml">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.tt</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\AddView\CSHTML\Empty.cshtml">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Empty.tt</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\AddView\CSHTML\List.cshtml">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>List.tt</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\AddView\CSHTML\Xpresion.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Xpresion.cshtml</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\AddView\CSHTML\Xpresion.cshtml">
+      <DependentUpon>Xpresion.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Report\OpsReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Report\statReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Utility\UserSetup.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\i18n\de_DE.json" />
+    <Content Include="assets\i18n\en.json" />
+    <Content Include="assets\i18n\it_IT.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Branch\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\VendorMaster\VendorMasterIndex.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:61120/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

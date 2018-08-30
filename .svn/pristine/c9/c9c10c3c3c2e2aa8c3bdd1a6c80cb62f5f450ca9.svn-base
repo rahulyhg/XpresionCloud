@@ -1,0 +1,25 @@
+﻿app.controller('loginController', ["$rootScope", "$state", "$scope", "$http", "$window", "$filter", "$timeout", "SweetAlert", "cfpLoadingBar", "AuthService", "AUTH_EVENTS",
+function ($rootScope, $state, $scope, $http, $window, $filter, $timeout, SweetAlert, cfpLoadingBar, AuthService, AUTH_EVENTS) {
+
+    $scope.submit = function () {
+        var param = JSON.stringify({
+            'param': JSON.stringify({
+                data: {
+                    '@username': $scope.userid,
+                    '@password':$scope.password
+                }
+            }),
+            'proc': 'login_check'
+        })
+
+        AuthService.login(param).then(function (res) {
+            if (res.status) {
+                $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
+                $state.go('app.dashboard');
+            } else {
+                $rootScope.$broadcast(AUTH_EVENTS.notAuthenticate)
+                toast('Error', res.message, 'error');
+            }
+        })
+    }
+}]);

@@ -1,0 +1,250 @@
+﻿.panel-tools-margins {
+    right: 70px !important;
+}
+.select-check {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 0;
+}
+
+.select-check label {
+    margin-right: 0;
+    margin-left: 5px;/*Add by dev */
+    margin-top: 4px;/*Add by dev */
+    /*padding-left: 10px !important;*/
+}
+
+.margin-bottom-100 {
+    margin-bottom:100px !important;
+}
+
+.fix-width {
+    width:10px;
+}
+
+.no-border {
+    border:none !important;
+}
+
+.btn[disabled] {
+    pointer-events: none !important;
+}
+
+.sortorder:before {
+    content: "\f0d7";
+}
+
+.sortorder.reverse:before {
+    content: "\f0d8";
+}
+
+.footer-fixed {
+    position:fixed;
+    background-color:#f9f9f9 !important;
+}
+
+.required:before {
+    content:"*";
+    display:inline;
+    color:#E6674A;
+}
+
+.pagination {
+    margin: 0 !important;
+}
+/*.filter-header th input {
+    background: transparent;
+    border: none;
+    padding-top: 0.7px;
+    padding-bottom: 0.7px;
+    width: 100%;
+}*/
+/*.filter-header th input::-webkit-input-placeholder {
+    color:white;
+    font-weight:bold;
+    font-family: Arial;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+.filter-header th input::-webkit-search-cancel-button {
+    color:white;
+}
+.filter-header th input:focus::-webkit-input-placeholder {
+    color: #2f52bc;
+    -webkit-transform: translateX(100px);
+    transform: translateX(100px);
+    visibility: hidden !important;
+}*/
+.daterangepicker .ranges li {
+    color: #73879C;
+}
+
+    .daterangepicker .ranges li.active, .daterangepicker .ranges li:hover {
+        background: #536A7F;
+        border: 1px solid #536A7F;
+        color: #fff;
+    }
+
+.daterangepicker .input-mini {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    box-shadow: none!important;
+}
+
+    .daterangepicker .input-mini.active {
+        border: 1px solid #ccc;
+    }
+
+.daterangepicker select.ampmselect, .daterangepicker select.hourselect, .daterangepicker select.minuteselect, .daterangepicker select.monthselect, .daterangepicker select.secondselect, .daterangepicker select.yearselect {
+    font-size: 12px;
+    padding: 1px;
+    margin: 0;
+    cursor: default;
+    height: 30px;
+    border: 1px solid #ADB2B5;
+    line-height: 30px;
+    border-radius: 0!important;
+}
+
+.daterangepicker select.monthselect {
+    margin-right: 2%;
+}
+
+.daterangepicker td.in-range {
+    background: #E4E7EA;
+    color: #73879C;
+}
+
+.daterangepicker td.active, .daterangepicker td.active:hover {
+    background-color: #536A7F;
+    color: #fff;
+}
+
+.daterangepicker th.available:hover {
+    background: #eee;
+    color: #34495E;
+}
+
+.daterangepicker:after, .daterangepicker:before {
+    content: none;
+}
+
+.daterangepicker .calendar.single {
+    margin: 0 0 4px;
+}
+
+    .daterangepicker .calendar.single .calendar-table {
+        width: 224px;
+        padding: 0 0 4px!important;
+    }
+
+        .daterangepicker .calendar.single .calendar-table thead tr:first-child th {
+            padding: 8px 5px;
+        }
+
+        .daterangepicker .calendar.single .calendar-table thead th {
+            border-radius: 0;
+        }
+
+.daterangepicker.picker_1 {
+    color: #fff;
+    background: #34495E;
+}
+
+    .daterangepicker.picker_1 .calendar-table {
+        background: #34495E;
+    }
+
+        .daterangepicker.picker_1 .calendar-table thead tr {
+            background: #213345;
+        }
+
+            .daterangepicker.picker_1 .calendar-table thead tr:first-child {
+                background: #1ABB9C;
+            }
+
+        .daterangepicker.picker_1 .calendar-table td.off {
+            background: #34495E;
+            color: #999;
+        }
+
+        .daterangepicker.picker_1 .calendar-table td.available:hover {
+            color: #34495E;
+        }
+
+.daterangepicker.picker_2 .calendar-table thead tr {
+    color: #1ABB9C;
+}
+
+    .daterangepicker.picker_2 .calendar-table thead tr:first-child {
+        color: #73879C;
+    }
+
+.daterangepicker.picker_3 .calendar-table thead tr:first-child {
+    color: #fff;
+    background: #1ABB9C;
+}
+
+.daterangepicker.picker_4 .calendar-table thead tr:first-child {
+    color: #fff;
+    background: #34495E;
+}
+
+.daterangepicker.picker_4 .calendar-table td, .daterangepicker.picker_4 .calendar-table td.off {
+    background: #ECF0F1;
+    border: 1px solid #fff;
+    border-radius: 0;
+}
+
+    .daterangepicker.picker_4 .calendar-table td.active {
+        background: #34495E;
+    }
+
+.calendar-exibit .show-calendar {
+    float: none;
+    display: block;
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0,0,0,.15);
+    overflow: hidden;
+}
+
+    .calendar-exibit .show-calendar .calendar {
+        margin: 0 0 4px;
+    }
+
+    .calendar-exibit .show-calendar.picker_1 {
+        background: #34495E;
+    }
+
+.calendar-exibit .calendar-table {
+    padding: 0 0 4px;
+}
+.control-label {
+        text-align: left !important;
+}
+/*Added by devendra for auto text*/
+.Autofit {
+        padding-right:10%
+}
+.hr-line::before {
+    content: " ";
+    position: absolute;
+    height: 1px;
+    top: -7px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.29), rgba(0, 0, 0, 0.08));
+}
+/*.dropdown-menu {
+    width: 100%;
+    font-size: 13px !important;
+    overflow: hidden;
+    
+}*/
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    padding: 0px !important;
+}
